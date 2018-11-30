@@ -81,7 +81,7 @@ O diretório do seu computador `$HOME/dockerbb-data` é montado como volume para
 
 ## Problemas Conhecidos
 
-Alguns problemas podem ocorrer na comunicação entre o navegador e o processo Warsaw (core). Por se tratar de um módulo completamente obscuro, nenhuma mensagem de log referente a este processo aparece no sistema. Portanto é difícil identificar a causa.
+Alguns problemas podem ocorrer na comunicação entre o navegador e o processo Warsaw (core). Por se tratar de um módulo completamente obscuro, nenhuma mensagem de log referente a este processo aparece no sistema. Por isso, é difícil identificar a causa.
 
 ### Cannot open display :0
 
