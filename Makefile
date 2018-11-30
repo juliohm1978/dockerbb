@@ -8,9 +8,6 @@ build:
 squash:
 	docker build -t dockerbb --squash --force-rm .
 
-dev:
-	docker build -t dockerbb .
-
 start:
 	echo $(XAUTHIRITY_FILE)
 	exit
@@ -34,5 +31,3 @@ stop:
 	-docker stop dockerbb
 	-docker rm  -f dockerbb
 
-logs:
-	docker logs -f dockerbb

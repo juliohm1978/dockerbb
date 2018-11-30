@@ -36,13 +36,7 @@ make start
 
 Isto deve criar um container chamado `dockerbb` com volume montado em `$HOME/dockerbb-data`. Este diretório em seu computador representa o diretório `$HOME` do usuário dentro do container, onde um usuário chamado `user` é criado na hora da execução. Para alterar o UID:GID deste usuário, confira o capítulo abaixo "Usuário dentro do container".
 
-Aguarde alguns instantes até o Google Chrome aparecer em sua tela. Em caso de problemas pode conferir os logs do container.
-
-```bash
-make logs
-```
-
-Ao fechar o navegador, o container será removido automaticamente. Se isto não ocorrer, a remoção pode ser forçada.
+Aguarde alguns instantes até o Google Chrome aparecer em sua tela. Em caso de problemas pode conferir os logs do container. Ao fechar o navegador, o container será removido automaticamente. Se isto não ocorrer, a remoção pode ser forçada.
 
 ```bash
 make stop
