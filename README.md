@@ -20,7 +20,7 @@ Coloque isto num terminal separado e vá tomar um café. O processo de build env
 
 Ao final, uma imagem local `dockerbb` estará criada.
 
-Se você pretende enviar sua imagem (push) a um Docker Registry privado, use o comando `make squash` para criar uma imagem mais compacta. Isto deve incluir parâmetro `--squash` no `docker build` para reduzir o tamanho da imagem final.
+Se você pretende enviar sua imagem (push) a um Docker Registry privado, use o comando `make squash` para criar uma imagem mais compacta. Assim, o parâmetro `--squash` será usado no `docker build` para reduzir o tamanho da imagem final.
 
 > Para `--squash` funcionar, seu Docker Daemon precisa ser configurado com a flag `--experimental`.
 > 
