@@ -7,10 +7,10 @@ squash:
 dev:
 	docker build -t dockerbb .
 
-run:
+start:
 	-docker stop dockerbb
 	-docker rm dockerbb
-	docker run --rm -it --name dockerbb \
+	docker run -d --name dockerbb \
 		--shm-size 100m \
 		--net host \
 		--hostname $(shell hostname) \
@@ -21,3 +21,7 @@ run:
 		--cap-add SYS_ADMIN \
 		-v "$(HOME)/dockerbb-data:/home/user" \
 		dockerbb www.bb.com.br
+
+stop:
+	-docker stop dockerbb
+	-docker rm  dockerbb
