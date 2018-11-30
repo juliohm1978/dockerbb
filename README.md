@@ -51,4 +51,3 @@ make stop
 Mesmo que o containe seja removido, o diretório `$HOME/dockerbb-data` continua existindo em sua pasta pessoal. Isto deve manter as configurações do Google Chrome entre execuções diferentes.
 
 > NOTA: Com cada nova execução do container, uma nova instalação do pacote Warsaw é realizada. Isto deve renovar chaves e certificados do componente sempre que o `dockerbb` for executado.
-
