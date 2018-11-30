@@ -63,3 +63,18 @@ Para algumas instalações de Docker o usuário comum não tem permissões para 
 ```bash
 sudo make start USER_UID=1000 USER_GID=1000
 ```
+
+## Algumas notas de segurança
+
+Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para executar esta imagem no ambiente Windows. Com isto em mente, lembre-se de que o `dockerbb` só funciona em instalações Linux com desktop gráfico. O ambiente suportado e testado é o Ubuntu 18.04 LTS / Linux Mint 19. Talvez sejam necessários alguns ajustes nos parâmetros do `docker run ...` para que funcione em outras distribuições.
+
+O navegador e Warsaw dentro do container são executados com uma conta de usuário comum. Este usuário só é criado no container no momento de execução. O container inicia com usuário `root` para poder realizar esta e outras tarefas antes de iniciar o navegador. Isto inclui:
+
+* Criar o usuário comum `user` com UID:GID especificados.
+* Instalar o Warsaw.
+* Iniciar instâncias do Warsaw em plano de fundo.
+* Iniciar o navegador com usuário `user`.
+
+Para poder executar aplicações gráficas, o container acessa o X11 do host onde executa. Para isso, o container precisa de acesso às interfaces de rede do host. Em prática, o container é executado com `docker run --net=host --cap-add SYS_ADMIN`. Isto pode ser um risco de segurança para o seu ambiente. Portanto, lembre-se de considerar este aspecto antes de usar a imagem.
+
+O diretório do seu computador `$HOME/dockerbb-data` é montado como volume para o `$HOME` do usuário `user` dentro do container. Isso permite o navegador guardar seu histórico e configurações entre diferentes execuções. Se não deseja ter este ponto aberto fora do container, faça os ajustes no `docker run...` do Makefile, ou simplesmente crie sua própria chamada para refletir suas necessidades.
