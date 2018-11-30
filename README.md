@@ -4,7 +4,7 @@ Imagem Docker com google-chrome e warsaw instalados para acessar o Banco do Bras
 
 ## Nota de Instalação
 
-Por questões de transparência e segurança, não há uma imagem pré-construída em repositório público. Para usar, você deverá obter o código fonte deste repositório e construir sua própria imagem. Sinta-se livre para realizar push para qualquer Registry privado sob sua única e própria responsabilidade.
+Por questões de transparência e segurança, não recomendo usar minha imagem pré-construída hospedada em repositório público. Obtenha o código fonte deste repositório e contrua sua própria imagem.
 
 ## Construção Local da Imagem
 
@@ -45,6 +45,28 @@ make stop
 Mesmo que o container seja removido, o diretório `$HOME/dockerbb-data` continua existindo em sua pasta pessoal. Isto deve manter as configurações e histórico do Google Chrome entre execuções diferentes.
 
 > NOTA: Com cada nova execução, uma nova instalação do pacote Warsaw é realizada. Isto renova chaves e certificados do componente sempre que o `dockerbb` for executado.
+
+## Executando imagem pré-construída
+
+Uma versão da imagem já construída encontra-se hospedada no Docker Hub: https://hub.docker.com/r/juliohm/dockerbb
+
+Para executar:
+
+```bash
+docker run -it --rm --name dockerbb \
+	-e USER_UID=1000 \
+	-e USER_GID=1000 \
+	--shm-size 100m \
+	--net host \
+	--hostname jhempc \
+	--cap-add SYS_ADMIN \
+	-e XSOCK \
+	-e XAUTH \
+	-e DISPLAY \
+	-v "$(xauth info | grep 'Authority file' | awk '{print $3}'):/home/user/.Xauthority:rw" \
+	-v "$HOME/dockerbb-data:/home/user" \
+	juliohm/dockerbb:1.0 www.bb.com.br
+```
 
 ## Usuário dentro do container
 
