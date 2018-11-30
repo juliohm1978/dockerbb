@@ -70,7 +70,7 @@ O navegador e Warsaw dentro do container são executados com uma conta de usuár
 * Iniciar instâncias do Warsaw em plano de fundo.
 * Iniciar o navegador com usuário `user`.
 
-Para poder executar aplicações gráficas, o container acessa o X11 do host onde executa. Para isso, o container precisa de acesso às interfaces de rede do host. Em prática, o container é executado com `docker run --net=host --cap-add SYS_ADMIN`. Isto pode ser um risco de segurança para o seu ambiente. Portanto, lembre-se de considerar este aspecto antes de usar a imagem.
+Para poder executar aplicações gráficas, o container acessa o X11 do host onde executa. Para isso, o container precisa de acesso às interfaces de rede do host. Em prática, o container é executado com `docker run --net=host --cap-add=SYS_ADMIN`. Isto pode ser um risco de segurança para o seu ambiente. Portanto, lembre-se de considerar este aspecto antes de usar a imagem.
 
 O diretório do seu computador `$HOME/dockerbb-data` é montado como volume para o `$HOME` do usuário `user` dentro do container. Isso permite o navegador guardar seu histórico e configurações entre diferentes execuções. Se não deseja ter este ponto aberto fora do container, faça os ajustes no `docker run...` do Makefile, ou simplesmente crie sua própria chamada para refletir suas necessidades.
 
