@@ -10,7 +10,7 @@ dev:
 start:
 	-docker stop dockerbb
 	-docker rm dockerbb
-	docker run -d --name dockerbb \
+	docker run -d --rm --name dockerbb \
 		--shm-size 100m \
 		--net host \
 		--hostname $(shell hostname) \
