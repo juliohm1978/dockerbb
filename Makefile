@@ -9,7 +9,7 @@ dev:
 
 start:
 	-docker stop dockerbb
-	-docker rm dockerbb
+	-docker rm -f dockerbb
 	docker run -d --rm --name dockerbb \
 		--shm-size 100m \
 		--net host \
@@ -24,7 +24,7 @@ start:
 
 stop:
 	-docker stop dockerbb
-	-docker rm  dockerbb
+	-docker rm  -f dockerbb
 
 logs:
 	docker logs -f dockerbb
