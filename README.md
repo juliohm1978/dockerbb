@@ -58,6 +58,8 @@ Dentro do container, um usuário comum é criado em momento de execução para i
 
 Caso precise usar outro UID:GID, pode defeinir estes valores passando variáveis de ambiente diretamente para o container `USER_UID` e `USER_GID`. Confira estes valores no início do `Makefile`.
 
-Quando estes valores não são informados, o container assume `1000:1000`.
+Para algumas instalações de Docker o usuário comum não tem permissões para executar `docker run...` diretamente, sendo necessário `sudo docker run...`. Neste caso, você pode simplesmente definir os valores na hora de executar pelo `Makefile`.
 
-> NOTA: Para algumas instalações de Docker o usuário comum não tem permissões para executar `docker run...` diretamente, sendo necessário `sudo docker run...`. Neste caso, para evitar que o container tente usar o UID:GID do seu usuário `root`, será preciso definir estes valores você mesmo.
+```bash
+sudo make start USER_UID=1000 USER_GID=1000
+```
