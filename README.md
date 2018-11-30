@@ -78,3 +78,23 @@ O navegador e Warsaw dentro do container são executados com uma conta de usuár
 Para poder executar aplicações gráficas, o container acessa o X11 do host onde executa. Para isso, o container precisa de acesso às interfaces de rede do host. Em prática, o container é executado com `docker run --net=host --cap-add SYS_ADMIN`. Isto pode ser um risco de segurança para o seu ambiente. Portanto, lembre-se de considerar este aspecto antes de usar a imagem.
 
 O diretório do seu computador `$HOME/dockerbb-data` é montado como volume para o `$HOME` do usuário `user` dentro do container. Isso permite o navegador guardar seu histórico e configurações entre diferentes execuções. Se não deseja ter este ponto aberto fora do container, faça os ajustes no `docker run...` do Makefile, ou simplesmente crie sua própria chamada para refletir suas necessidades.
+
+## Resolução de Problemas Conhecidos
+
+Alguns problemas podem ocorrer na comunicação entre o navegador e o processo Warsaw (core). Por se tratar de um módulo completamente obscuro, nenhuma mensagem de log referente a este processo aparece no sistema. Portanto é difícil identificar a causa.
+
+### Cannot open display :0
+
+Uma de integração entre o ambiente dentro do container e o X11 de sua máquina. O caminho do arquivo `.XAuthority` pode ser diferente no seu caso. Tente descobrir com `xauth info` e passar o arquivo correto.
+
+```bash
+make start XAUTHIRITY_FILE=$(xauth info | grep 'Authority file' | awk '{print $3}')
+```
+
+### cert_verify_proc_nss.cc(975)] CERT_PKIXVerifyCert for 127.0.0.1 failed err=-8179
+
+Sem causa definida. O navegador não conseguiu validar a comunicação com o módulo Warsaw. Em alguns casos, reiniciar o container pode resolver o problema.
+
+### Erro ao enviar evento associado 'diges': Not connected to daemon
+
+Sem causa definida. O navegador não conseguiu se conectar ao o módulo Warsaw. Em alguns casos, reiniciar o container pode resolver o problema.
