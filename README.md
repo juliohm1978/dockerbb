@@ -6,7 +6,7 @@ Imagem Docker com google-chrome e warsaw instalados para acessar o Banco do Bras
 
 Por questões de transparência e segurança, não há uma imagem pré-construída em repositório público. Para usar, você deverá obter o código fonte deste repositório e construir sua própria imagem. Sinta-se livre para realizar push para qualquer Registry público ou privado sob sua única e própria responsabilidade.
 
-## Build local
+## Construção Local da Imagem
 
 Com Docker mais recente instalado, faça um build de imagem local com os comandos abaixo.
 
@@ -20,9 +20,9 @@ Coloque isto num terminal separado e vá tomar um café. O processo de build env
 
 Ao final, uma imagem local `dockerbb` estará criada.
 
-Se você pretende enviar esta imagem a um Docker Registry (push), use o comando `make squash` para criar uma imagem mais compacta. Isto deve incluir parâmetro `--squash` no `docker build` para reduzir o tamanho da imagem final.
+Se você pretende enviar sua imagem (push) a um Docker Registry privado, use o comando `make squash` para criar uma imagem mais compacta. Isto deve incluir parâmetro `--squash` no `docker build` para reduzir o tamanho da imagem final.
 
-> Para `--squash` funcionar, seu dockerd precisa ter a flag `--experimental`.
+> Para `--squash` funcionar, seu Docker Daemon precisa ser configurado com a flag `--experimental`.
 > 
 > Confira a documentação do Docker para maiores detalhes: https://docs.docker.com/engine/reference/commandline/dockerd/
 
@@ -34,7 +34,7 @@ Há um target no `Makefile` preparado para executar um container.
 make start
 ```
 
-Isto deve criar um container chamado `dockerbb` com volume montado em `$HOME/dockerbb-data`. Este diretório em seu computador representa o diretório `$HOME` do usuário dentro do container, onde um usuário chamado `user` é utilizado com uid:gid `1000:1000`. Estes valores geralmente batem com usuário Ubuntu principal desktop instalado. Isto significa que, em uma instalação padrão Ubuntu Desktop, os arquivos criados em `$HOME/dockerbb-data` terão as mesas permissões do seu usuário principal.
+Isto deve criar um container chamado `dockerbb` com volume montado em `$HOME/dockerbb-data`. Este diretório em seu computador representa o diretório `$HOME` do usuário dentro do container, onde um usuário chamado `user` é criado na hora da execução. Para alterar o UID:GID deste usuário, confira o capítulo abaixo "Usuário dentro do container".
 
 Aguarde alguns instantes até o Google Chrome aparecer em sua tela. Em caso de problemas pode conferir os logs do container.
 
@@ -42,15 +42,15 @@ Aguarde alguns instantes até o Google Chrome aparecer em sua tela. Em caso de p
 make logs
 ```
 
-Ao fechar o navegador, o container deve parar e ser removido automaticamente. Se isto não ocorrer, pode forçar a remoção do container.
+Ao fechar o navegador, o container será removido automaticamente. Se isto não ocorrer, a remoção pode ser forçada.
 
 ```bash
 make stop
 ```
 
-Mesmo que o containe seja removido, o diretório `$HOME/dockerbb-data` continua existindo em sua pasta pessoal. Isto deve manter as configurações do Google Chrome entre execuções diferentes.
+Mesmo que o container seja removido, o diretório `$HOME/dockerbb-data` continua existindo em sua pasta pessoal. Isto deve manter as configurações e histórico do Google Chrome entre execuções diferentes.
 
-> NOTA: Com cada nova execução do container, uma nova instalação do pacote Warsaw é realizada. Isto deve renovar chaves e certificados do componente sempre que o `dockerbb` for executado.
+> NOTA: Com cada nova execução, uma nova instalação do pacote Warsaw é realizada. Isto renova chaves e certificados do componente sempre que o `dockerbb` for executado.
 
 ## Usuário dentro do container
 
