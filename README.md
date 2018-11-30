@@ -66,7 +66,7 @@ sudo make start USER_UID=1000 USER_GID=1000
 
 ## Algumas notas de segurança
 
-Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para executar esta imagem no ambiente Windows. Com isto em mente, lembre-se de que o `dockerbb` só funciona em instalações Linux com desktop gráfico. O ambiente suportado e testado é o Ubuntu 18.04 LTS / Linux Mint 19. Talvez sejam necessários alguns ajustes nos parâmetros do `docker run ...` para que funcione em outras distribuições.
+Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para executar esta imagem no ambiente Windows. Com isto em mente, lembre-se de que o `dockerbb` só funciona em instalações Linux com desktop gráfico. O ambiente suportado e testado é o Ubuntu 18.04 LTS / Linux Mint 19. Talvez sejam necessários alguns ajustes nos parâmetros do `docker run ...` para que funcione em outras versões/distribuições.
 
 O navegador e Warsaw dentro do container são executados com uma conta de usuário comum. Este usuário só é criado no container no momento de execução. O container inicia com usuário `root` para poder realizar esta e outras tarefas antes de iniciar o navegador. Isto inclui:
 
