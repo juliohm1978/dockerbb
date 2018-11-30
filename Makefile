@@ -25,3 +25,6 @@ start:
 stop:
 	-docker stop dockerbb
 	-docker rm  dockerbb
+
+logs:
+	docker logs -f dockerbb
