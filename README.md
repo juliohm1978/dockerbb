@@ -93,8 +93,8 @@ make start XAUTHIRITY_FILE=$(xauth info | grep 'Authority file' | awk '{print $3
 
 ### cert_verify_proc_nss.cc(975)] CERT_PKIXVerifyCert for 127.0.0.1 failed err=-8179
 
-Sem causa definida. O navegador não conseguiu validar a comunicação com o módulo Warsaw. Em alguns casos, reiniciar o container pode resolver o problema.
+Sem causa definida. Mensagem aparece no console do container. O navegador não conseguiu validar a comunicação com o módulo Warsaw. Em alguns casos, reiniciar o container pode resolver o problema.
 
 ### Erro ao enviar evento associado 'diges': Not connected to daemon
 
-Sem causa definida. O navegador não conseguiu se conectar ao o módulo Warsaw. Em alguns casos, reiniciar o container pode resolver o problema.
+Sem causa definida. Mensagem aparece no navegador. O navegador não conseguiu se conectar ao o módulo Warsaw. Em alguns casos, reiniciar o container pode resolver o problema.
