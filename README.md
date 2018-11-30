@@ -58,7 +58,6 @@ docker run -it --rm --name dockerbb \
 	-e USER_GID=1000 \
 	--shm-size 100m \
 	--net host \
-	--hostname jhempc \
 	--cap-add SYS_ADMIN \
 	-e XSOCK \
 	-e XAUTH \
