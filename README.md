@@ -79,13 +79,13 @@ Para poder executar aplicações gráficas, o container acessa o X11 do host ond
 
 O diretório do seu computador `$HOME/dockerbb-data` é montado como volume para o `$HOME` do usuário `user` dentro do container. Isso permite o navegador guardar seu histórico e configurações entre diferentes execuções. Se não deseja ter este ponto aberto fora do container, faça os ajustes no `docker run...` do Makefile, ou simplesmente crie sua própria chamada para refletir suas necessidades.
 
-## Resolução de Problemas Conhecidos
+## Problemas Conhecidos
 
 Alguns problemas podem ocorrer na comunicação entre o navegador e o processo Warsaw (core). Por se tratar de um módulo completamente obscuro, nenhuma mensagem de log referente a este processo aparece no sistema. Portanto é difícil identificar a causa.
 
 ### Cannot open display :0
 
-Uma de integração entre o ambiente dentro do container e o X11 de sua máquina. O caminho do arquivo `.XAuthority` pode ser diferente no seu caso. Tente descobrir com `xauth info` e passar o arquivo correto.
+Uma falha de integração entre o ambiente dentro do container e o X11 de sua máquina. O caminho do arquivo `.XAuthority` pode ser diferente no seu caso. Tente descobrir com `xauth info` e passar o arquivo correto.
 
 ```bash
 make start XAUTHIRITY_FILE=$(xauth info | grep 'Authority file' | awk '{print $3}')
