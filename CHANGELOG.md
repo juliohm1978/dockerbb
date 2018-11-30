@@ -1,6 +1,6 @@
 # Histórico de Versões
 
-## 2018-nov-30 v1.0
+## v1.0 (30/nov/2018)
 
 Versões de componente:
 * Google Chrome 70.0.3538.110
