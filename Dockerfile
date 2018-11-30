@@ -1,5 +1,8 @@
 FROM ubuntu:18.04
 
+ENV USER_UID=1000
+ENV USER_GID=1000
+
 RUN apt-get update && apt-get install -y \
     python2.7 \
     libpython2.7-minimal \
@@ -32,7 +35,6 @@ ADD https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb /c
 
 RUN dpkg -i c.deb && rm -fr /c.deb
 RUN mkdir -p /var/run/dbus
-RUN useradd -ms /bin/bash user
 
 COPY epoint.sh /usr/local/bin/epoint.sh
 

@@ -1,3 +1,6 @@
+USER_UID = $(shell id -u $(USER))
+USER_GID = $(shell id -g $(USER))
+
 build:
 	docker build -t dockerbb --force-rm .
 
@@ -11,6 +14,8 @@ start:
 	-docker stop dockerbb
 	-docker rm -f dockerbb
 	docker run -d --rm --name dockerbb \
+		-e USER_UID=$(USER_UID) \
+		-e USER_GID=$(USER_GID) \
 		--shm-size 100m \
 		--net host \
 		--hostname $(shell hostname) \
