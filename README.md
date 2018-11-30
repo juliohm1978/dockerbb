@@ -2,7 +2,7 @@
 
 Imagem Docker com google-chrome e warsaw instalados para acessar o Banco do Brasil.
 
-## NOTA DE INSTALAÇÃO
+## Nota de Instalação
 
 Por questões de transparência e segurança, não há uma imagem pré-construída em repositório público. Para usar, você deverá obter o código fonte deste repositório e construir sua própria imagem. Sinta-se livre para realizar push para qualquer Registry público ou privado sob sua única e própria responsabilidade.
 
