@@ -50,9 +50,8 @@ Mesmo que o container seja removido, o diretório `$HOME/dockerbb-data` continua
 
 Dentro do container, um usuário comum é criado em momento de execução para iniciar componentes do Warsaw e o navegador. O `Makefile` deste projeto está preparado para deduzir o UID:GID do seu usuário e repassá-los ao container. Assim, o diretório `$HOME/dockerbb-data` e todo seu conteúdo terá permissões para o seu usuário.
 
-Caso precise usar outro UID:GID, pode defeinir estes valores passando variáveis de ambiente diretamente para o container `USER_UID` e `USER_GID`. Confira estes valores no início do `Makefile`.
+Caso precise usar outro UID:GID, pode defeinir estes valores passando variáveis de ambiente diretamente para o container `USER_UID` e `USER_GID`. Para algumas instalações de Docker o usuário comum não tem permissões para executar `docker run...` diretamente, sendo necessário `sudo docker run...`. Neste caso, você pode simplesmente definir os valores na hora de executar pelo `Makefile`.
 
-Para algumas instalações de Docker o usuário comum não tem permissões para executar `docker run...` diretamente, sendo necessário `sudo docker run...`. Neste caso, você pode simplesmente definir os valores na hora de executar pelo `Makefile`.
 
 ```bash
 sudo make start USER_UID=1000 USER_GID=1000
