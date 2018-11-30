@@ -1,4 +1,7 @@
 build:
+	docker build -t dockerbb --force-rm .
+
+buildsquash:
 	docker build -t dockerbb --squash --force-rm .
 
 dev:
