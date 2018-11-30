@@ -56,6 +56,7 @@ Para executar:
 docker run -it --rm --name dockerbb \
 	-e USER_UID=1000 \
 	-e USER_GID=1000 \
+	--hostname $(hostname) \
 	--shm-size 100m \
 	--net host \
 	--cap-add SYS_ADMIN \
