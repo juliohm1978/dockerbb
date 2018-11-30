@@ -6,6 +6,7 @@ useradd -u $USER_UID -g $USER_GID -ms /bin/bash user
 dpkg -i /w.deb && rm -fr /w.deb
 
 /usr/local/bin/warsaw/core
+sleep 10
 chown -R user.user /home/user
 gosu user:user /usr/local/bin/warsaw/core
 gosu user:user google-chrome "$@"
