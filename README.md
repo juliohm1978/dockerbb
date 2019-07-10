@@ -2,6 +2,12 @@
 
 Imagem Docker com firefox e warsaw instalados para acessar o Banco do Brasil.
 
+Versões de componentes:
+
+* Firefox: 67.0.4
+* Warsaw 1.13.1-2
+* Xfce 4.12.1
+
 ## Nota de Instalação
 
 Por questões de transparência, privacidade e segurança, **NUNCA** utilize qualquer imagem pré-construída. Obtenha o código fonte deste repositório e contrua sua própria imagem.
