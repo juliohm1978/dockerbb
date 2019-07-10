@@ -4,7 +4,7 @@ Imagem Docker com firefox e warsaw instalados para acessar o Banco do Brasil.
 
 ## Nota de Instalação
 
-Por questões de transparência, privacidade e segurança, não recomendo usar qualquer imagem pré-construída. Obtenha o código fonte deste repositório e contrua sua própria imagem.
+Por questões de transparência, privacidade e segurança, **NUNCA** utilize qualquer imagem pré-construída. Obtenha o código fonte deste repositório e contrua sua própria imagem.
 
 A versão atual `2.x` utiliza Xfce4 e VNC dentro do container para manter os componentes ainda mais isolados e independentes do ambiente onde executa. Se precisa consultar a documentação da versão antiga, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
 

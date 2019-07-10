@@ -13,7 +13,7 @@ gosu user:user Xvfb $DISPLAY -screen 0 $DESKTOP_SIZE &
 gosu user:user x11vnc -passwd $VNC_PASSWORD --rfbport 5900 -display $DISPLAY -N -forever &
 gosu user:user /usr/share/novnc/utils/launch.sh --vnc localhost:5900 &
 xfwm4 &
-sleep 5
+sleep 10
 clear
 set +x
 echo ""
