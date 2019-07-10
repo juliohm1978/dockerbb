@@ -2,7 +2,7 @@
 
 ## 2.0 (10/jul/2019)
 
-* Remove necessidade de compartilhar ambiente X11 com host, mantém Xfce4 e Firefox instalados dentro da imagem.
+* Remove necessidade de compartilhar ambiente X11 com host. Utiliza Xfce4 e Firefox instalados dentro da imagem.
 * Acesso via web vnc através de <http://localhost:6080/vnc_auto.html>
 
 Versões de componentes:
