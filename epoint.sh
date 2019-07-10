@@ -10,7 +10,9 @@ sleep 5
 chown -R user.user /home/user
 gosu user:user /usr/local/bin/warsaw/core
 gosu user:user Xvfb $DISPLAY -screen 0 $DESKTOP_SIZE &
+sleep 3
 gosu user:user x11vnc -passwd $VNC_PASSWORD --rfbport 5900 -display $DISPLAY -N -forever &
+sleep 3
 gosu user:user /usr/share/novnc/utils/launch.sh --vnc localhost:5900 &
 xfwm4 &
 sleep 10
