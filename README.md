@@ -10,7 +10,7 @@ A versão atual `2.x` utiliza Xfce4 e VNC dentro do container para manter os com
 
 ## Construção Local da Imagem
 
-Com Docker mais recente instalado, faça um build de imagem local com os comandos abaixo.
+Com Docker mais recente instalado:
 
 ```bash
 git clone https://github.com/juliohm1978/dockerbb.git
