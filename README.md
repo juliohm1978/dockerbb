@@ -6,7 +6,7 @@ Versões de componentes na versão 2.0 (10/jul/2019):
 
 * Firefox: 67.0.4
 * Warsaw 1.13.1-2
-* Xfce 4.12.1
+* xfwm4 4.12.5
 
 ## Nota de Instalação
 

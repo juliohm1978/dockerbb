@@ -9,6 +9,7 @@ Versões de componentes:
 
 * Firefox: 67.0.4
 * Warsaw 1.13.1-2
+* xfwm4 4.12.5
 
 ## v1.0 (30/nov/2018)
 
