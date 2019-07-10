@@ -18,7 +18,7 @@ cd dockerbb
 make
 ```
 
-Deixe isto num terminal separado e vá tomar um café. O build é demorado e envolve instalação de inúmeros pacotes para o ambiente X11, interface gráfica. Ao final, uma imagem local `dockerbb` estará criada.
+Deixe isto num terminal separado e vá tomar um café; o build é demorado. Ao final, uma imagem local `dockerbb` estará criada.
 
 Se pretende enviar sua imagem para seu Docker Registry privado (push), use o comando `make squash` para criar uma imagem mais compacta.
 
