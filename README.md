@@ -8,7 +8,8 @@ Por questões de transparência, privacidade e segurança, **NUNCA** utilize qua
 
 A versão atual `2.x` utiliza Xfce4 e VNC dentro do container para manter os componentes ainda mais isolados e independentes do ambiente onde executa. Se precisa consultar a documentação da versão antiga, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
 
-**LEMBRE-SE**: O conteúdo deste repositório é um protótipo de uso pessoal, independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada. A utilização deste protótipo se dá por sua própria conta e risco e não implica qualquer garantia de suporte ou segurança.
+<span style=“color:red;”>**LEMBRE-SE**: O conteúdo deste repositório é um protótipo de uso pessoal, independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada. A utilização deste protótipo se dá por sua própria conta e risco e não implica qualquer garantia de suporte ou segurança.
+</span>
 
 ## Construção Local da Imagem
 
