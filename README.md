@@ -54,7 +54,7 @@ Ao terminar, não se confunda: **feche o navegador de dentro do container**. Cas
 make stop
 ```
 
-Com o comando `make stop` o container será completamente removido, mas o diretório `$HOME/dockerbb-data` será mantido.
+O container será completamente removido, mas o diretório `$HOME/dockerbb-data` será mantido.
 
 > **NOTA**: Com cada nova execução, uma nova instalação do pacote Warsaw é realizada. Isto renova chaves e certificados do componente sempre que o `dockerbb` for executado.
 
