@@ -1,10 +1,12 @@
 # dockerbb
 
-Imagem Docker com google-chrome e warsaw instalados para acessar o Banco do Brasil.
+Imagem Docker com firefox e warsaw instalados para acessar o Banco do Brasil.
 
 ## Nota de Instalação
 
-Por questões de transparência e segurança, não recomendo usar minha imagem pré-construída hospedada em repositório público. Obtenha o código fonte deste repositório e contrua sua própria imagem.
+Por questões de transparência, privacidade e segurança, não recomendo usar minha imagem pré-construída hospedada no Docker Hub. Obtenha o código fonte deste repositório e contrua sua própria imagem.
+
+A versão atual `2.x` utiliza Xfce4 e VNC dentro do container para manter os componentes ainda mais isolados e independentes do ambiente onde executa. Se precisa consultar a documentação da versão antiga, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
 
 ## Construção Local da Imagem
 
@@ -16,15 +18,11 @@ cd dockerbb
 make
 ```
 
-Coloque isto num terminal separado e vá tomar um café. O processo de build envolve instalação de inúmeros pacotes Ubuntu para o ambiente X11 e interfaces gráficas e deve demorar vários minutos.
+Deixe isto num terminal separado e vá tomar um café. O build é demorado e envolve instalação de inúmeros pacotes para o ambiente X11, interface gráfica. Ao final, uma imagem local `dockerbb` estará criada.
 
-Ao final, uma imagem local `dockerbb` estará criada.
+Se pretende enviar sua imagem para seu Docker Registry privado (push), use o comando `make squash` para criar uma imagem mais compacta.
 
-Se você pretende enviar sua imagem (push) a um Docker Registry privado, use o comando `make squash` para criar uma imagem mais compacta. Assim, o parâmetro `--squash` será usado no `docker build` para reduzir o tamanho da imagem final.
-
-> Para `--squash` funcionar, seu Docker Daemon precisa ser configurado com a flag `--experimental`.
-> 
-> Confira a documentação do Docker para maiores detalhes: https://docs.docker.com/engine/reference/commandline/dockerd/
+> **NOTA**: Para `--squash` funcionar, seu Docker Daemon precisa ser configurado com a flag `--experimental`. Confira a documentação do Docker para maiores detalhes: <https://docs.docker.com/engine/reference/commandline/dockerd>
 
 ## Executando
 
@@ -34,56 +32,41 @@ Há um target no `Makefile` preparado para executar um container.
 make start
 ```
 
-Isto deve criar um container chamado `dockerbb` com volume montado em `$HOME/dockerbb-data`. Este diretório em seu computador representa o diretório `$HOME` do usuário dentro do container, onde um usuário chamado `user` é criado na hora da execução. Para alterar o UID:GID deste usuário, confira o capítulo abaixo "Usuário dentro do container".
+Isto deve criar um container chamado `dockerbb` com volume montado em `$HOME/dockerbb-data`. Este diretório em seu computador representa o diretório `$HOME` do usuário dentro do container.
 
-Aguarde alguns instantes até o Google Chrome aparecer em sua tela. Em caso de problemas pode conferir os logs do container. Ao fechar o navegador, o container será removido automaticamente. Se isto não ocorrer, a remoção pode ser forçada.
+> Algumas distribuições Linux (e mesmo MacOS da Apple) podem manter um UID:GID diferente do usuário principal da estação de trabalho. O `Makefile` tenta deduzir os valores. Em caso de problemas, confira mais abaixo nesta documentação como customizar este UID:GID.
+
+Após alguns instantes, os componentes internos serão inicializados e uma instância do Firefox estará executando dentro do container. Uma mensagem parecida com esta será mostrada.
+
+```text
+=====================================
+Acesse do seu navegador
+http://localhost:6080/vnc_auto.html
+
+Senha do VNC: ***
+```
+
+Com a senha criada para esta sessão, utilize um navegador de fora do container e acesse: <http://localhost:6080/vnc_auto.html>.
+
+Ao terminar, não se confunda: **feche o navegador de dentro do container**. Caso precise parar o container manualmente, pode fazer isso na linha de comando:
 
 ```bash
 make stop
 ```
 
-Mesmo que o container seja removido, o diretório `$HOME/dockerbb-data` continua existindo em sua pasta pessoal. Isto deve manter as configurações e histórico do Google Chrome entre execuções diferentes.
+Com o comando `make stop` o container será completamente removido, mas o diretório `$HOME/dockerbb-data` será mantido.
 
-> NOTA: Com cada nova execução, uma nova instalação do pacote Warsaw é realizada. Isto renova chaves e certificados do componente sempre que o `dockerbb` for executado.
-
-## Executando imagem pré-construída
-
-Uma versão da imagem já construída encontra-se hospedada no Docker Hub: https://hub.docker.com/r/juliohm/dockerbb
-
-Para executar:
-
-```bash
-docker run -it --rm --name dockerbb \
-	-e USER_UID=1000 \
-	-e USER_GID=1000 \
-	--hostname $(hostname) \
-	--shm-size 100m \
-	--net host \
-	--cap-add SYS_ADMIN \
-	-e XSOCK \
-	-e XAUTH \
-	-e DISPLAY \
-	-v "$(xauth info | grep 'Authority file' | awk '{print $3}'):/home/user/.Xauthority:rw" \
-	-v "$HOME/dockerbb-data:/home/user" \
-	juliohm/dockerbb:1.0 www.bb.com.br
-```
+> **NOTA**: Com cada nova execução, uma nova instalação do pacote Warsaw é realizada. Isto renova chaves e certificados do componente sempre que o `dockerbb` for executado.
 
 ## Usuário dentro do container
 
-Dentro do container, um usuário comum é criado em momento de execução para iniciar componentes do Warsaw e o navegador. O `Makefile` deste projeto está preparado para deduzir o UID:GID do seu usuário e repassá-los ao container. Assim, o diretório `$HOME/dockerbb-data` e todo seu conteúdo terá permissões para o seu usuário.
+Dentro do container, um usuário comum é criado em momento de execução para iniciar componentes do Warsaw e o navegador. O `Makefile` deste projeto está preparado para deduzir o UID:GID do seu usuário e repassá-los ao container. Assim, o diretório `$HOME/dockerbb-data` e todo seu conteúdo terão as permissões do seu usuário.
 
-Caso precise usar outro UID:GID, pode defeinir estes valores passando variáveis de ambiente diretamente para o container `USER_UID` e `USER_GID`. Para algumas instalações de Docker o usuário comum não tem permissões para executar `docker run...` diretamente, sendo necessário `sudo docker run...`.
-
-Para estes casos, você pode definir os valores na hora de executar.
-
-
-```bash
-sudo make start USER_UID=1000 USER_GID=1000
-```
+Caso precise usar outro UID:GID, pode defeinir estes valores passando variáveis de ambiente diretamente ao container `USER_UID` e `USER_GID`.
 
 ## Algumas notas de segurança
 
-Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para executar esta imagem no ambiente Windows. Com isto em mente, lembre-se de que o `dockerbb` só funciona em instalações Linux com desktop gráfico. O ambiente suportado e testado é o Ubuntu 18.04 LTS / Linux Mint 19. Talvez sejam necessários alguns ajustes nos parâmetros do `docker run ...` para que funcione em outras versões/distribuições.
+Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para executar esta imagem no ambiente Windows. Nada foi testado no ambiente WSL da Microsoft.
 
 O navegador e Warsaw dentro do container são executados com uma conta de usuário comum. Este usuário só é criado no container no momento de execução. O container inicia com usuário `root` para poder realizar esta e outras tarefas antes de iniciar o navegador. Isto inclui:
 
@@ -92,26 +75,4 @@ O navegador e Warsaw dentro do container são executados com uma conta de usuár
 * Iniciar instâncias do Warsaw em plano de fundo.
 * Iniciar o navegador com usuário `user`.
 
-Para poder executar aplicações gráficas, o container acessa o X11 do host onde executa. Para isso, o container precisa de acesso às interfaces de rede do host. Em prática, o container é executado com `docker run --net=host --cap-add=SYS_ADMIN`. Isto pode ser um risco de segurança para o seu ambiente. Portanto, lembre-se de considerar este aspecto antes de usar a imagem.
-
-O diretório do seu computador `$HOME/dockerbb-data` é montado como volume para o `/home/user` dentro do container. Isso permite o navegador guardar seu histórico e configurações entre diferentes execuções e ajuda você a fazer download/upload de arquivos. Se não deseja ter este ponto aberto fora do container, faça os ajustes no `docker run...` do Makefile, ou simplesmente crie sua própria chamada para refletir suas necessidades.
-
-## Problemas Conhecidos
-
-Alguns problemas podem ocorrer na comunicação entre o navegador e o processo Warsaw (core). Por se tratar de um módulo completamente obscuro, nenhuma mensagem de log referente a este processo aparece no sistema. Por isso, é difícil identificar a causa.
-
-### Cannot open display :0
-
-Uma falha de integração entre o ambiente dentro do container e o X11 de sua máquina. O caminho do arquivo `.XAuthority` pode ser diferente no seu caso. Tente descobrir com `xauth info` e passar o arquivo correto.
-
-```bash
-make start XAUTHIRITY_FILE=$(xauth info | grep 'Authority file' | awk '{print $3}')
-```
-
-### cert_verify_proc_nss.cc(975)] CERT_PKIXVerifyCert for 127.0.0.1 failed err=-8179
-
-Sem causa definida. Mensagem aparece no console do container. O navegador não conseguiu validar a comunicação com o módulo Warsaw. Em alguns casos, reiniciar o container pode resolver o problema.
-
-### Erro ao enviar evento associado 'diges': Not connected to daemon
-
-Sem causa definida. Mensagem aparece no navegador. O navegador não conseguiu se conectar ao o módulo Warsaw. Em alguns casos, reiniciar o container pode resolver o problema.
+Para executar aplicações gráficas, o container também possui instalado o Xfce4 e um servidor VNC. Com ajuda do `novnc`, o acesso ao navegador dentro do container pode ser feito através do seu navegador externo ou a partir de qualquer cliente VNC pela porta `5920` do container.

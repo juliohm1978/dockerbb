@@ -1,13 +1,12 @@
 FROM ubuntu:18.04
 
+ENV DEBIAN_FRONTEND=noninteractive
 ENV USER_UID=1000
 ENV USER_GID=1000
+ENV DISPLAY=:20
+ENV DESKTOP_SIZE=1366x900x16
 
 RUN apt-get update && apt-get install -y \
-    python2.7 \
-    libpython2.7-minimal \
-    libpython2.7-stdlib \
-    python-openssl \
     libnss3-tools \
     zenity \
     libgtk2.0-0 \
@@ -17,23 +16,16 @@ RUN apt-get update && apt-get install -y \
     libdbus-1.3 \
     openssl \
     sudo gosu \
-    fonts-liberation \
-    libappindicator3-1 \
-    libasound2 \
     libxss1 \
     lsb-release \
     wget \
     xdg-utils \
-    && \
-    \
-    rm -fr /var/lib/apt/lists/* \
-    rm -fr /var/cache/apt/* \
-    rm -fr /tmp/*
- 
-ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb /w.deb
-ADD https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb /c.deb
+    xfce4 \
+    x11vnc xvfb novnc net-tools \
+    firefox
 
-RUN dpkg -i c.deb && rm -fr /c.deb
+ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb /w.deb
+
 RUN mkdir -p /var/run/dbus
 
 COPY epoint.sh /usr/local/bin/epoint.sh

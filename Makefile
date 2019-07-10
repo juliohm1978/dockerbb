@@ -9,21 +9,13 @@ squash:
 	docker build -t dockerbb --squash --force-rm .
 
 start:
-	echo $(XAUTHIRITY_FILE)
-	exit
 	-docker stop dockerbb
 	-docker rm -f dockerbb
 	docker run -it --rm --name dockerbb \
 		-e USER_UID=$(USER_UID) \
 		-e USER_GID=$(USER_GID) \
-		--shm-size 100m \
-		--net host \
-		--hostname $(shell hostname) \
-		-e XSOCK \
-		-e XAUTH \
-		-e DISPLAY \
-		-v "$(XAUTHIRITY_FILE):/home/user/.Xauthority:rw" \
-		--cap-add SYS_ADMIN \
+		-e DESKTOP_SIZE=1366x900x16 \
+		-p 6080:6080 \
 		-v "$(HOME)/dockerbb-data:/home/user" \
 		dockerbb www.bb.com.br
 
