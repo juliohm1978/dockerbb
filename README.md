@@ -64,7 +64,7 @@ Dentro do container, um usuário comum é criado em momento de execução para i
 
 Caso precise usar outro UID:GID, pode defeinir estes valores passando variáveis de ambiente diretamente ao container `USER_UID` e `USER_GID`.
 
-## Algumas notas de segurança
+## Algumas notas
 
 Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para executar esta imagem no ambiente Windows. Nada foi testado no ambiente WSL da Microsoft.
 
