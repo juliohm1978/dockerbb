@@ -2,7 +2,6 @@ IMG=juliohm/dockerbb:2.1
 
 USER_UID = $(shell id -u $(USER))
 USER_GID = $(shell id -g $(USER))
-XAUTHIRITY_FILE = $(HOME)/.Xauthority
 
 build:
 	docker build -t dockerbb --squash .
