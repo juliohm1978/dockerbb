@@ -1,5 +1,9 @@
 # Histórico de Versões
 
+## 2.1 (12/jul/2019)
+
+* Melhorias no entrypoint para manter o x11vnc e xfwm sempre executando em plano de fundo.
+
 ## 2.0 (10/jul/2019)
 
 * Remove necessidade de compartilhar ambiente X11 com host. Utiliza Xfce4 e Firefox instalados dentro da imagem.

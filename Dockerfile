@@ -29,5 +29,7 @@ ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb /w.de
 RUN mkdir -p /var/run/dbus
 
 COPY epoint.sh /usr/local/bin/epoint.sh
+COPY start-x11vnc.sh /usr/local/bin/start-x11vnc.sh
+COPY start-xfwm.sh /usr/local/bin/start-xfwm.sh
 
 ENTRYPOINT [ "/usr/local/bin/epoint.sh" ]

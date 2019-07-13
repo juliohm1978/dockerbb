@@ -1,12 +1,15 @@
+IMG=juliohm/dockerbb:2.1
+
 USER_UID = $(shell id -u $(USER))
 USER_GID = $(shell id -g $(USER))
 XAUTHIRITY_FILE = $(HOME)/.Xauthority
 
 build:
-	docker build -t dockerbb .
+	docker build -t dockerbb --squash .
 
-squash:
-	docker build -t dockerbb --squash --force-rm .
+push: build
+	docker tag dockerbb $(IMG)
+	docker push $(IMG)
 
 start:
 	-docker stop dockerbb
@@ -22,4 +25,3 @@ start:
 stop:
 	-docker stop dockerbb
 	-docker rm  -f dockerbb
-
