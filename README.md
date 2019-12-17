@@ -4,9 +4,12 @@ Imagem Docker com firefox e warsaw instalados para acessar o Banco do Brasil.
 
 Versões de componentes na versão 2.1 (12/jul/2019):
 
-* Firefox: 67.0.4
+* Firefox: 71.0
 * Warsaw 1.13.1-2
 * xfwm4 4.12.5
+* openssl 1.1.1
+* xfce 4.12.4
+* x11vnc 0.9.13-3
 
 ## Nota de Instalação
 
@@ -27,10 +30,6 @@ make
 ```
 
 Deixe isto num terminal separado e vá tomar um café; o build é demorado. Ao final, uma imagem local `dockerbb` estará criada.
-
-Se pretende enviar sua imagem para seu Docker Registry privado (push), use o comando `make squash` para criar uma imagem mais compacta.
-
-> **NOTA**: Para `--squash` funcionar, seu Docker Daemon precisa ser configurado com a flag `--experimental`. Confira a documentação do Docker para maiores detalhes: <https://docs.docker.com/engine/reference/commandline/dockerd>
 
 ## Executando
 
