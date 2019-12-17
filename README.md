@@ -2,7 +2,7 @@
 
 Imagem Docker com firefox e warsaw instalados para acessar o Banco do Brasil.
 
-Versões de componentes na versão 2.1 (12/jul/2019):
+Versões de componentes na versão 2.2 (17/dez/2019):
 
 * Firefox: 71.0
 * Warsaw 1.13.1-2
