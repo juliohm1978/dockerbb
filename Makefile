@@ -4,7 +4,7 @@ USER_UID = $(shell id -u $(USER))
 USER_GID = $(shell id -g $(USER))
 
 build:
-	docker build -t dockerbb --squash .
+	docker build -t dockerbb .
 
 push: build
 	docker tag dockerbb $(IMG)
