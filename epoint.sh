@@ -14,6 +14,7 @@ gosu user:user Xvfb $DISPLAY -screen 0 $DESKTOP_SIZE &
 /usr/local/bin/start-x11vnc.sh &
 sleep 10
 gosu user:user /usr/share/novnc/utils/launch.sh --vnc localhost:5900 &
+clear
 echo ""
 echo ""
 echo "Aguarde alguns instantes....."
