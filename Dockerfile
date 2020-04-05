@@ -1,10 +1,6 @@
 FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV USER_UID=1000
-ENV USER_GID=1000
-ENV DISPLAY=:20
-ENV DESKTOP_SIZE=1366x900x16
 
 RUN apt-get update && apt-get install -y \
     libnss3-tools \
@@ -24,12 +20,25 @@ RUN apt-get update && apt-get install -y \
     x11vnc xvfb novnc net-tools \
     firefox
 
-ADD https://cloud.gastecnologia.com.br/gas/diagnostico/warsaw_setup_64.deb /w.deb
+RUN apt-get install -y vim less
+
+ENV USER_UID=1000
+ENV USER_GID=1000
+
+ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /w.deb
 
 RUN mkdir -p /var/run/dbus
 
-COPY epoint.sh /usr/local/bin/epoint.sh
-COPY start-x11vnc.sh /usr/local/bin/start-x11vnc.sh
-COPY start-xfwm.sh /usr/local/bin/start-xfwm.sh
+COPY rootfs /
+
+RUN    systemctl enable warsaw-install \
+    && systemctl enable warsaw-root \
+    && systemctl enable warsaw-user \
+    && systemctl enable xvfb \
+    && systemctl enable xfwm \
+    && systemctl enable vnc \
+    && systemctl enable novnc \
+    && systemctl enable firefox \
+    && echo OK
 
 ENTRYPOINT [ "/usr/local/bin/epoint.sh" ]

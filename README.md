@@ -4,8 +4,8 @@ Imagem Docker com firefox e warsaw instalados para acessar o Banco do Brasil.
 
 Versões de componentes na versão 2.2 (17/dez/2019):
 
-* Firefox: 71.0
-* Warsaw 1.13.1-2
+* Firefox: 74.0.1
+* Warsaw 1.14.1-10
 * xfwm4 4.12.5
 * openssl 1.1.1
 * xfce 4.12.4
@@ -43,19 +43,21 @@ Isto deve criar um container chamado `dockerbb` com volume montado em `$HOME/doc
 
 > Algumas distribuições Linux (e mesmo MacOS da Apple) podem manter um UID:GID diferente do usuário principal da estação de trabalho. O `Makefile` tenta deduzir os valores. Em caso de problemas, confira mais abaixo nesta documentação como customizar este UID:GID.
 
-Após alguns instantes, os componentes internos serão inicializados e uma instância do Firefox estará executando dentro do container. Uma mensagem parecida com esta será mostrada.
+Após alguns instantes, os componentes internos serão inicializados e uma instância do Firefox estará executando dentro do container. Depois de algun tempo (aproximadamente 1 min) a mensagem abaixo deve aparecer:
 
-```text
-=====================================
-Acesse do seu navegador
-http://localhost:6080/vnc_auto.html
-
-Senha do VNC: ***
+```shell
+###
+##
+## Acesse de seu navegador:
+##
+## http://localhost:6080/vnc_auto.html
+##
+###
 ```
 
-Com a senha criada para esta sessão, utilize um navegador de fora do container e acesse: <http://localhost:6080/vnc_auto.html>.
+O acesso pode ser feito através do seu navegador de preferência. Ao entrar, uma sessão VNC para dentro do container, onde uma instância do Firefox deve estar executando. Use aquele Firefox para acessar o site do banco.
 
-Ao terminar, não se confunda: **feche o navegador de dentro do container**. Caso precise parar o container manualmente, pode fazer isso na linha de comando:
+Ao terminar, lembre-se de finalizar o container para desativar todos os serviços iniciados:
 
 ```bash
 make stop

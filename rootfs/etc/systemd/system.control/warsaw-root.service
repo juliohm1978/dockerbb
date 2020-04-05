@@ -1,0 +1,12 @@
+[Unit]
+Requires=warsaw-install.service
+After=warsaw-install.service
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/warsaw/core
+Restart=on-failure
+ExecStartPre=/bin/sleep 5
+
+[Install]
+WantedBy=multi-user.target

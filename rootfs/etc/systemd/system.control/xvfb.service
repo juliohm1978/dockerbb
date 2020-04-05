@@ -1,0 +1,12 @@
+[Unit]
+Requires=warsaw-user.service
+After=warsaw-user.service
+
+[Service]
+ExecStart=/usr/bin/Xvfb :20 -screen 0 1366x900x16 
+Restart=on-failure
+ExecStartPre=/bin/sleep 5
+
+[Install]
+WantedBy=multi-user.target
+

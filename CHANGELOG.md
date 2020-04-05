@@ -1,5 +1,12 @@
 # Histórico de Versões
 
+## 2.3 (05/abr/2020)
+
+* Modifica entrypoint para /sbin/init e configura todos os serviços com systemctl.
+* Atualiza warsaw para 1.14.1-10
+* Atualiza Firefox para 74.0.1
+* Remove senha do VNC - para segurança, expor a porta 6080 apenas em localhost na hora de executar o container.
+
 ## 2.1 (12/jul/2019)
 
 * Melhorias no entrypoint para manter o x11vnc e xfwm sempre executando em plano de fundo.

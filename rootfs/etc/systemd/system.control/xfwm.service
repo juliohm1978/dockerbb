@@ -1,0 +1,12 @@
+[Unit]
+Requires=xvfb.service
+After=xvfb.service
+
+[Service]
+Environment=DISPLAY=:20
+ExecStart=/usr/bin/xfwm4
+Restart=on-failure
+ExecStartPre=/bin/sleep 5
+
+[Install]
+WantedBy=multi-user.target

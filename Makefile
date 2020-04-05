@@ -1,4 +1,4 @@
-IMG=juliohm/dockerbb:2.2
+IMG=juliohm/dockerbb:2.3
 
 USER_UID = $(shell id -u $(USER))
 USER_GID = $(shell id -g $(USER))
@@ -13,14 +13,20 @@ push: build
 start:
 	-docker stop dockerbb
 	-docker rm -f dockerbb
-	docker run -it --rm --name dockerbb \
+	docker run -d --stop-timeout 0 --privileged --name dockerbb \
 		-e USER_UID=$(USER_UID) \
 		-e USER_GID=$(USER_GID) \
-		-e DESKTOP_SIZE=1366x900x16 \
-		-p 6080:6080 \
+		-p 127.0.0.1:6080:6080 \
 		-v "$(HOME)/dockerbb-data:/home/user" \
 		dockerbb www.bb.com.br
+	docker logs -f dockerbb
 
 stop:
-	-docker stop dockerbb
+	-docker stop -t0 dockerbb
 	-docker rm  -f dockerbb
+
+shell:
+	docker logs -f dockerbb
+
+shell:
+	docker exec -it dockerbb bash
