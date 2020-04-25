@@ -19,6 +19,7 @@ ifeq ($(shell uname),Darwin)
 start:
 	-docker stop dockerbb
 	-docker rm -f dockerbb
+	rm -rf ~/dockerbb-data/.config/chromium/Singleton*
 	docker run -e MACOS=1 -d --stop-timeout 0 --privileged --name dockerbb \
 		-e USER_UID=$(USER_UID) \
 		-e USER_GID=$(USER_GID) \
@@ -39,6 +40,9 @@ else
 endif
 
 stop:
+ifeq ($(shell uname),Darwin)
+	rm -rf ~/dockerbb-data/.config/chromium/Singleton*
+endif
 	-docker stop -t0 dockerbb
 	-docker rm  -f dockerbb
 
