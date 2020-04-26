@@ -23,7 +23,7 @@ Para uma lista completa dos pacotes instalados, confira: [Pacotes Instalados](in
 
 ## LEIA ANTES DE CONTINUAR
 
-***IMPORTANTE RESSALTAR que o conteúdo deste repositório é um protótipo de uso pessoal, independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada***.
+***É IMPORTANTE RESSALTAR que o conteúdo deste repositório é um protótipo de uso pessoal, independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada***.
 
 ***Sua utilização presume conhecimentos técnicos avançados e se dá por sua própria conta e risco, sem qualquer garantia de suporte ou segurança.***
 
