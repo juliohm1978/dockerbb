@@ -83,10 +83,6 @@ Com cada nova execução, uma nova instalação do pacote Warsaw é realizada. I
 
 ## Usuário dentro do container
 
-Para que funcione, vários processos são gerenciados dentro do container pelo `/sbin/init` padrão, comum em várias distribuições Linux. É como se uma mini-estação de trabalho Linux estivesse executando dentro do container. Isto quebra o paradigma "*um processo por container*", padrão na comunidade, mas faz-se necessário pelos requisitos desta solução.
-
-Dentro do container, um usuário comum é configurado na hora da execução. Alguns componentes, como Warsaw e o navegador são executados com este usuário. Outros, por serem necessários ao gerenciamento de processos do Linux, são executados como `root`.
-
 O `Makefile` deste projeto está preparado para deduzir o `UID:GID` de sua estação de trabalho e repassá-los ao container. Assim, o diretório `$HOME/dockerbb-data` e todo seu conteúdo terão as permissões do seu usuário. O usuário de dentro do container não tem acesso à sua estação de trabalho. Por outro lado, é possível transferir arquivos para dentro e fora do container através do diretório `$HOME/dockerbb-data`. Ao avaliar seus próprios requisitos de usabilidade, pode decidir remover este volume para aumentar o isolamento e, por consequẽncia, sua segurança.
 
 Caso precise usar outros valores de `UID:GID`, pode defeiní-los passando variáveis de ambiente diretamente ao container: `USER_UID` e `USER_GID`.
@@ -94,3 +90,7 @@ Caso precise usar outros valores de `UID:GID`, pode defeiní-los passando variá
 ## Algumas notas finais
 
 Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para o Windows. Nada foi testado no ambiente WSL da Microsoft.
+
+Para que funcione, vários processos são gerenciados dentro do container pelo `/sbin/init` padrão, comum em várias distribuições Linux. É como se uma mini-estação de trabalho Linux estivesse executando dentro do container. Isto quebra o paradigma "*um processo por container*", padrão na comunidade, mas faz-se necessário pelos requisitos desta solução.
+
+Dentro do container, um usuário comum é configurado na hora da execução. Alguns componentes, como Warsaw e o navegador são executados com este usuário. Outros, por serem necessários ao gerenciamento de processos do Linux, são executados como `root`.
