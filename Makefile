@@ -28,6 +28,7 @@ start:
 		$(IMG) www.bb.com.br
 	docker logs -f dockerbb
 else
+start:
 	-docker stop dockerbb
 	-docker rm -f dockerbb
 	docker run -d --stop-timeout 0 --privileged --name dockerbb \
