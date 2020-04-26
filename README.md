@@ -83,7 +83,7 @@ Com cada nova execução, uma nova instalação do pacote Warsaw é realizada. I
 
 ## Usuário dentro do container
 
-O `Makefile` deste projeto está preparado para deduzir o `UID:GID` de sua estação de trabalho e repassá-los ao container. Assim, o diretório `$HOME/dockerbb-data` e todo seu conteúdo terão as permissões do seu usuário. O usuário de dentro do container não tem acesso à sua estação de trabalho. Por outro lado, é possível transferir arquivos para dentro e fora do container através do diretório `$HOME/dockerbb-data`. Ao avaliar seus próprios requisitos de usabilidade, pode decidir remover este volume para aumentar o isolamento e, por consequẽncia, sua segurança.
+O `Makefile` deste projeto está preparado para deduzir o `UID:GID` de sua estação de trabalho e repassá-los ao container. Assim, o diretório `$HOME/dockerbb-data` e todo seu conteúdo terão as permissões do seu usuário. O usuário de dentro do container não tem acesso à sua estação de trabalho. Por outro lado, é possível transferir arquivos para dentro e fora do container através do diretório `$HOME/dockerbb-data`. Ao avaliar seus próprios requisitos, pode decidir remover este volume para aumentar o isolamento e, por consequẽncia, sua segurança.
 
 Caso precise usar outros valores de `UID:GID`, pode defeiní-los passando variáveis de ambiente diretamente ao container: `USER_UID` e `USER_GID`.
 
