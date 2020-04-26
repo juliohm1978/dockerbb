@@ -94,12 +94,3 @@ Caso precise usar outros valores de `UID:GID`, pode defeiní-los passando variá
 ## Algumas notas finais
 
 Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para o Windows. Nada foi testado no ambiente WSL da Microsoft.
-
-O navegador e Warsaw dentro do container são executados com uma conta de usuário comum. Este usuário só é criado no momento de execução. O container inicia com usuário `root` em modo privilegiado para poder realizar esta e outras tarefas antes de iniciar o navegador. Isto inclui:
-
-* Criar o usuário comum `user` com UID:GID especificados.
-* Instalar o Warsaw.
-* Iniciar instâncias do Warsaw em plano de fundo.
-* Iniciar o navegador com usuário `user`.
-
-Para executar aplicações gráficas, o container também possui instalado o Xfce4 e um servidor VNC. Com ajuda do `novnc`, o acesso ao navegador dentro do container pode ser feito através do seu navegador externo ou a partir de qualquer cliente VNC pela porta `5920` do container.
