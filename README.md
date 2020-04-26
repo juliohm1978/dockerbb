@@ -79,7 +79,7 @@ make stop
 
 O container será completamente removido, mas o diretório `$HOME/dockerbb-data` será mantido em sua estação de trabalho.
 
-> **NOTA**: Com cada nova execução, uma nova instalação do pacote Warsaw é realizada. Isto renova chaves e certificados do componente sempre que o `dockerbb` for executado.
+Com cada nova execução, uma nova instalação do pacote Warsaw é realizada. Isto renova chaves e certificados do componente sempre que o `dockerbb` for executado.
 
 ## Usuário dentro do container
 
