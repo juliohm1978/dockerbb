@@ -93,7 +93,7 @@ Caso precise usar outros valores de `UID:GID`, pode defeiní-los passando variá
 
 ## Algumas notas finais
 
-Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para executar esta imagem no Windows. Nada foi testado no ambiente WSL da Microsoft.
+Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para o Windows. Nada foi testado no ambiente WSL da Microsoft.
 
 O navegador e Warsaw dentro do container são executados com uma conta de usuário comum. Este usuário só é criado no momento de execução. O container inicia com usuário `root` em modo privilegiado para poder realizar esta e outras tarefas antes de iniciar o navegador. Isto inclui:
 
