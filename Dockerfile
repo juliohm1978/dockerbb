@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install -y \
     xdg-utils \
     xfce4 \
     x11vnc xvfb novnc net-tools \
-    firefox
+    firefox \
+    chromium-browser
 
 RUN apt-get install -y vim less
 
@@ -39,6 +40,7 @@ RUN    systemctl enable warsaw-install \
     && systemctl enable vnc \
     && systemctl enable novnc \
     && systemctl enable firefox \
+    && systemctl enable chromium \
     && echo OK
 
 ENTRYPOINT [ "/usr/local/bin/epoint.sh" ]
