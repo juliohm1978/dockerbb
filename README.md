@@ -1,23 +1,31 @@
 # dockerbb
 
-Imagem Docker com firefox e warsaw instalados para acessar o Banco do Brasil.
+Imagem Docker com Chromium Browser e Warsaw instalados para acessar o Banco do Brasil.
 
-Versões de componentes na versão 2.3 (05/abr/2020):
+> **NOTA 1**: A partir da versão 3.0, o Firefox é substituído pelo Chromium Browser. Ao momento, por ser o navegador majoritário do mercado, oferece maior compatibilidade. Mesmo sendo executado dentro de um container, alguns usuários já encontraram dificuldades usando o dockerbb no MacOS, por exemplo.
+>
+> *-- Agradecimentos ao @marcocspc por relatar e ajudar a corrigir os problemas. :+1:*
 
-* Firefox: 74.0.1
+> **NOTA 2**: Começando com a versão `2.x`, componentes necessários para o Xfce4 e VNC são iniciados dentro do container, mantendo tudo ainda mais isolado. Caso precise consultar a documentação da versão com modelo de instalação antigo, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
+
+Componentes instalados na versão 3.0 (26/abr/2020):
+
+* Chromium Browser: 80.0.3987.163
 * Warsaw 1.14.1-10
 * xfwm4 4.12.5
-* openssl 1.1.1
+* openssl 1.1.1-1
 * xfce 4.12.4
 * x11vnc 0.9.13-3
+* novnc 1:0.4
+* xvfb 2:1.19.6
 
-## Nota de Instalação
+Para uma lista completa dos pacotes instalados, confira: [Pacotes Instalados](installed-packages.md)
 
-Por questões de transparência, privacidade e segurança, **NUNCA** utilize qualquer imagem pré-construída. Obtenha o código fonte deste repositório com código aberto, confira o conteúdo e autenticidade e contrua sua própria imagem.
+## LEIA ANTES DE CONTINUAR
 
-A versão atual `2.x` utiliza Xfce4 e VNC dentro do container para manter os componentes ainda mais isolados e independentes do ambiente onde executa. Se precisa consultar a documentação da versão antiga, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
+Por questões de transparência, privacidade e segurança ***NUNCA utilize qualquer imagem Docker pré-construída deste projeto***. Obtenha uma cópia do código fonte deste repositório, confira o conteúdo e contrua sua própria imagem. ***Caso não saiba como proceder com as instruções abaixo, esta solução certamente não é para você.***
 
-**LEMBRE-SE**: O conteúdo deste repositório é um protótipo de uso pessoal, independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada. A utilização deste protótipo se dá por sua própria conta e risco e não implica qualquer garantia de suporte ou segurança.
+**LEMBRE-SE**: O conteúdo deste repositório é um protótipo de uso pessoal, independente e ***não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada***. Sua utilização presume conhecimentos técnicos avançados e se dá por sua própria conta e risco, sem qualquer garantia de suporte ou segurança.
 
 ## Construção Local da Imagem
 
@@ -43,9 +51,9 @@ Isto deve criar um container chamado `dockerbb` com volume montado em `$HOME/doc
 
 > Algumas distribuições Linux (e mesmo MacOS da Apple) podem manter um UID:GID diferente do usuário principal da estação de trabalho. O `Makefile` tenta deduzir os valores. Em caso de problemas, confira mais abaixo nesta documentação como customizar este UID:GID.
 
-Após alguns instantes, os componentes internos serão inicializados e uma instância do Firefox estará executando dentro do container. Depois de algun tempo (aproximadamente 1 min) a mensagem abaixo deve aparecer:
+Após alguns instantes, os componentes internos serão inicializados e uma instância do navegador estará executando dentro do container. Depois de aproximadamente 1 min a mensagem abaixo deve aparecer:
 
-```shell
+```bash
 ###
 ##
 ## Acesse de seu navegador:
@@ -55,15 +63,17 @@ Após alguns instantes, os componentes internos serão inicializados e uma inst�
 ###
 ```
 
-O acesso pode ser feito através do seu navegador de preferência. Ao entrar, uma sessão VNC para dentro do container, onde uma instância do Firefox deve estar executando. Use aquele Firefox para acessar o site do banco.
+O acesso pode ser feito através do seu navegador de preferência **somente em sua estação de trabalho**. Usando este `Makefile`, a porta `6080` não é exposta para interface externas, apenas em `localhost/127.0.0.1`. Ao entrar, uma sessão VNC será iniciada para dentro do container. 
 
-Ao terminar, lembre-se de finalizar o container para desativar todos os serviços iniciados:
+> INCEPTION: Utilize o navegador dentro do seu navegador para acessar o site do banco.
+
+Ao terminar, lembre-se de finalizar o container para desligar todos os serviços iniciados:
 
 ```bash
 make stop
 ```
 
-O container será completamente removido, mas o diretório `$HOME/dockerbb-data` será mantido.
+O container será completamente removido, mas o diretório `$HOME/dockerbb-data` será mantido em sua estação de trabalho.
 
 > **NOTA**: Com cada nova execução, uma nova instalação do pacote Warsaw é realizada. Isto renova chaves e certificados do componente sempre que o `dockerbb` for executado.
 
@@ -75,9 +85,9 @@ Caso precise usar outro UID:GID, pode defeinir estes valores passando variáveis
 
 ## Algumas notas
 
-Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para executar esta imagem no ambiente Windows. Nada foi testado no ambiente WSL da Microsoft.
+Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para executar esta imagem no Windows. Nada foi testado no ambiente WSL da Microsoft.
 
-O navegador e Warsaw dentro do container são executados com uma conta de usuário comum. Este usuário só é criado no container no momento de execução. O container inicia com usuário `root` para poder realizar esta e outras tarefas antes de iniciar o navegador. Isto inclui:
+O navegador e Warsaw dentro do container são executados com uma conta de usuário comum. Este usuário só é criado no momento de execução. O container inicia com usuário `root` em modo privilegiado para poder realizar esta e outras tarefas antes de iniciar o navegador. Isto inclui:
 
 * Criar o usuário comum `user` com UID:GID especificados.
 * Instalar o Warsaw.

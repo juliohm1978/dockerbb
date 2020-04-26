@@ -2,19 +2,9 @@
 
 echo "$(date) Esperando serviços, aguarde aprox. 1 min"
 while true; do
-  if [[ "$MACOS" == "1" ]]
-  then
-    systemctl status chromium > /dev/null
-  else
-    systemctl status firefox > /dev/null
-  fi
+  systemctl status chromium > /dev/null
   R=$?
   if [[ "$R" == "0" ]]; then
-    if [[ "$MACOS" == "1" ]]
-    then
-        echo "Detectado sistema MAC-OS, desabilitando Firefox e Habilitando Chromium..."
-        systemctl stop firefox > /dev/null
-    fi
     echo "###"
     echo "## "
     echo "## Acesse de seu navegador:"

@@ -1,6 +1,13 @@
 FROM ubuntu:18.04
 
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive \
+    CHROME_VERSION=80.0.3987.163 \
+    XFCE_VERSION=4.12.4 \
+    XFWM4_VERSION=4.12.5 \
+    X11VNC_VERSION=0.9.13-3 \
+    XVFB_VERSION=2:1.19.6 \
+    NOVNC_VERSION=1:0.4 \
+    OPENSSL_VERSION=1.1.1-1
 
 RUN apt-get update && apt-get install -y \
     libnss3-tools \
@@ -10,16 +17,20 @@ RUN apt-get update && apt-get install -y \
     yad \
     libcurl3 \
     libdbus-1.3 \
-    openssl \
     sudo gosu \
     libxss1 \
     lsb-release \
     wget \
     xdg-utils \
-    xfce4 \
-    x11vnc xvfb novnc net-tools \
-    firefox \
-    chromium-browser
+    net-tools \
+    openssl=${OPENSSL_VERSION}* \
+    xfce4=${XFCE_VERSION}* \
+    xfwm4=${XFWM4_VERSION}* \
+    x11vnc=${X11VNC_VERSION}* \
+    xvfb=${XVFB_VERSION}* \
+    novnc=${NOVNC_VERSION}* \
+    chromium-browser=${CHROME_VERSION}* \
+    && dpkg -l | awk '{print "|" $2 "|" $3 "|"}' > /installed-packages.txt
 
 RUN apt-get install -y vim less
 
@@ -39,7 +50,6 @@ RUN    systemctl enable warsaw-install \
     && systemctl enable xfwm \
     && systemctl enable vnc \
     && systemctl enable novnc \
-    && systemctl enable firefox \
     && systemctl enable chromium \
     && echo OK
 
