@@ -23,9 +23,13 @@ Para uma lista completa dos pacotes instalados, confira: [Pacotes Instalados](in
 
 ## LEIA ANTES DE CONTINUAR
 
-***IMPORTANTE RESSALTAR que o conteúdo deste repositório é um protótipo de uso pessoal, independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada***. Sua utilização presume conhecimentos técnicos avançados e se dá por sua própria conta e risco, sem qualquer garantia de suporte ou segurança.
+***IMPORTANTE RESSALTAR que o conteúdo deste repositório é um protótipo de uso pessoal, independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada***.
 
-Por questões de transparência, privacidade e segurança ***NUNCA utilize qualquer imagem Docker pré-construída deste projeto***. Obtenha uma cópia do código fonte deste repositório, confira o conteúdo e contrua sua própria imagem. ***Caso não saiba como proceder com as instruções abaixo, esta solução certamente não é para você.***
+***Sua utilização presume conhecimentos técnicos avançados e se dá por sua própria conta e risco, sem qualquer garantia de suporte ou segurança.***
+
+***Por questões de transparência, privacidade e segurança NUNCA UTILIZE QUALQUER IMAGEM DOCKER PRÉ-CONSTRUÍDA DESTE PROJETO. Obtenha uma cópia do código fonte deste repositório, confira o conteúdo e contrua sua própria imagem.***
+
+***Caso não saiba como proceder com as instruções abaixo, esta solução certamente não é para você.***
 
 ## Construção Local da Imagem
 
