@@ -1,5 +1,13 @@
 # Histórico de Versões
 
+## 3.0 (26/abr/2020)
+
+* Merge com PR #2 (@marcocspc) melhora suporte ao MacOS
+* Melhorias em cima da PR #2 para ficar mais simples
+* Remove Firefox, substitui pelo Chromium Browser
+* Inclui nos docs uma lista completa de todos os pacotes instalados.
+* Atualiza documentação
+
 ## 2.3 (05/abr/2020)
 
 * Modifica entrypoint para /sbin/init e configura todos os serviços com systemctl.
