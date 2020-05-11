@@ -10,7 +10,7 @@
 
 Componentes instalados na versão 3.0 (26/abr/2020):
 
-* Chromium Browser: 80.0.3987.163
+* Chromium Browser: 81.0.4044.122
 * Warsaw 1.14.1-10
 * xfwm4 4.12.5
 * openssl 1.1.1-1
