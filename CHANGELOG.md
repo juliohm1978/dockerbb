@@ -1,10 +1,10 @@
 # Histórico de Versões
 
-## 3.0 (26/abr/2020)
+## 3.0 (11/mai/2020)
 
 * Merge com PR #2 (@marcocspc) melhora suporte ao MacOS
 * Melhorias em cima da PR #2 para ficar mais simples
-* Remove Firefox, substitui pelo Chromium Browser
+* Remove Firefox, substitui pelo Chromium Browser (81)
 * Inclui nos docs uma lista completa de todos os pacotes instalados.
 * Atualiza documentação
 
