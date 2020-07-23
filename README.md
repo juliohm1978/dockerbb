@@ -16,8 +16,6 @@ Versão atual 3.1 (22/jul/2020):
 
 Confira histórico de versões em [CHANGELOG.md](CHANGELOG.md).
 
-Para uma lista completa dos pacotes instalados, confira: [Pacotes Instalados](installed-packages.md)
-
 ## Problemas conhecidos
 
 Mesmo que o container seja iniciado com `docker run -it` dando ao terminal um console interativo, o comando CTRL+C enviado para dentro do container não consegue matar o processo 1 (`/sbin/init`). Este precisa de outro sinal para terminar com sucesso `SIGRTMIN+3`, agora definido como `STOPSIGNAL` no `Dockerfile`.
