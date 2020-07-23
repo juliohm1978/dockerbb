@@ -69,7 +69,7 @@ Quando terminar, lembre-se de desligar o dockerbb:
     docker stop dockerbb
 ```
 
-O acesso pode ser feito através do seu navegador de preferência **somente em sua estação de trabalho**. Usando este `Makefile`, a porta `6080` não é exposta para interface externas, apenas em `localhost/127.0.0.1`. Ao entrar, uma sessão VNC será iniciada para dentro do container. 
+O acesso pode ser feito através do seu navegador de preferência **somente em sua estação de trabalho**. Usando este `Makefile`, a porta `6080` não é exposta para interfaces externas, apenas em `localhost/127.0.0.1`. Ao entrar, uma sessão VNC será iniciada para dentro do container. 
 
 > INCEPTION: Utilize o navegador dentro do seu navegador para acessar o site do banco.
 
