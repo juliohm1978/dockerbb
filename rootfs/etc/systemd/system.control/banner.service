@@ -1,0 +1,11 @@
+[Unit]
+Requires=chromium.service
+After=chromium.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/banner.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

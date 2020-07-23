@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    CHROME_VERSION=81.0.4044.122 \
+    CHROME_VERSION=83.0.4103.61 \
     XFCE_VERSION=4.12.4 \
     XFWM4_VERSION=4.12.5 \
     X11VNC_VERSION=0.9.13-3 \
@@ -43,6 +43,8 @@ RUN mkdir -p /var/run/dbus
 
 COPY rootfs /
 
+STOPSIGNAL SIGRTMIN+3
+
 RUN    systemctl enable warsaw-install \
     && systemctl enable warsaw-root \
     && systemctl enable warsaw-user \
@@ -51,6 +53,7 @@ RUN    systemctl enable warsaw-install \
     && systemctl enable vnc \
     && systemctl enable novnc \
     && systemctl enable chromium \
+    && systemctl enable banner \
     && echo OK
 
 ENTRYPOINT [ "/usr/local/bin/epoint.sh" ]

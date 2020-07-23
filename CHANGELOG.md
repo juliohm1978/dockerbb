@@ -1,5 +1,14 @@
 # Histórico de Versões
 
+## 3.1 (22/jul/2020)
+
+* Atualiza Chromium para 83.0.4103.61
+* Substitui `wait.sh` por uma alternativa mais robusta: `banner.service` iniciado depois do chromium.
+* Usa flag `--disable-dev-shm-usage` do chromium para evitar que abas morram com falta de memória SHM.
+* Usa flag `--start-maximized` do chromium para iniciar navegador já maximizado.
+* Define `Restart=always` no `chromium.service` para um restart automático do navegador.
+* Define `STOPSIGNAL` com valor `SIGRTMIN+3` para que o comando `docker stop` consiga desligar o `/sbin/init` com sucesso.
+
 ## 3.0 (11/mai/2020)
 
 * Merge com PR #2 (@marcocspc) melhora suporte ao MacOS

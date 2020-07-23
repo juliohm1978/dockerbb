@@ -8,18 +8,21 @@
 
 > **NOTA 2**: Começando com a versão `2.x`, componentes necessários para o Xfce4 e VNC são iniciados dentro do container, mantendo tudo ainda mais isolado. Caso precise consultar a documentação da versão com modelo de instalação antigo, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
 
-Componentes instalados na versão 3.0 (26/abr/2020):
+Versão atual 3.1 (22/jul/2020):
 
-* Chromium Browser: 81.0.4044.122
+* Chromium Browser: 83.0.4103.61
 * Warsaw 1.14.1-10
-* xfwm4 4.12.5
-* openssl 1.1.1-1
-* xfce 4.12.4
-* x11vnc 0.9.13-3
-* novnc 1:0.4
-* xvfb 2:1.19.6
+* Melhorias na inicializaçao do serviços
+
+Confira histórico de versões em [CHANGELOG.md](CHANGELOG.md).
 
 Para uma lista completa dos pacotes instalados, confira: [Pacotes Instalados](installed-packages.md)
+
+## Problemas conhecidos
+
+Mesmo que o container seja iniciado com `docker run -it` dando ao terminal um console interativo, o comando CTRL+C enviado para dentro do container não consegue matar o processo 1 (`/sbin/init`). Este precisa de outro sinal para terminar com sucesso `SIGRTMIN+3`, agora definido como `STOPSIGNAL` no `Dockerfile`.
+
+Para conseguir parar o container, é preciso usar `docker stop dockerbb`.
 
 ## LEIA ANTES DE CONTINUAR
 
@@ -58,13 +61,14 @@ Isto deve criar um container chamado `dockerbb` com volume montado em `$HOME/doc
 Após alguns instantes, os componentes internos serão inicializados e uma instância do navegador estará executando dentro do container. Depois de aproximadamente 1 min a mensagem abaixo deve aparecer:
 
 ```bash
-###
-##
-## Acesse de seu navegador:
-##
-## http://localhost:6080/vnc_auto.html
-##
-###
+Componentes iniciados!
+Em seu navegador, acesse (CTRL+Click do mouse aqui no terminal):
+
+    http://localhost:6080/vnc_auto.html
+
+Quando terminar, lembre-se de desligar o dockerbb:
+
+    docker stop dockerbb
 ```
 
 O acesso pode ser feito através do seu navegador de preferência **somente em sua estação de trabalho**. Usando este `Makefile`, a porta `6080` não é exposta para interface externas, apenas em `localhost/127.0.0.1`. Ao entrar, uma sessão VNC será iniciada para dentro do container. 

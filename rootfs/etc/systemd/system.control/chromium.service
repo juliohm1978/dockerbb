@@ -4,8 +4,8 @@ After=novnc.service
 
 [Service]
 Environment=DISPLAY=:20
-ExecStart=/usr/bin/chromium-browser
-Restart=on-failure
+ExecStart=/usr/bin/chromium-browser --disable-dev-shm-usage --start-maximized
+Restart=always
 User=user
 Group=user
 

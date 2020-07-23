@@ -1,4 +1,4 @@
-IMG=juliohm/dockerbb:3.0
+IMG=juliohm/dockerbb:3.1
 
 USER_UID = $(shell id -u $(USER))
 USER_GID = $(shell id -g $(USER))
@@ -18,7 +18,7 @@ start:
 	-docker stop dockerbb
 	-docker rm -f dockerbb
 	rm -rf ~/dockerbb-data/.config/chromium/Singleton*
-	docker run -d --stop-timeout 0 --privileged --name dockerbb \
+	docker run -d --rm -it --privileged --name dockerbb \
 		-e USER_UID=$(USER_UID) \
 		-e USER_GID=$(USER_GID) \
 		-p 127.0.0.1:6080:6080 \
@@ -28,8 +28,11 @@ start:
 
 stop:
 	rm -rf ~/dockerbb-data/.config/chromium/Singleton*
-	-docker stop -t0 dockerbb
-	-docker rm  -f dockerbb
+	-docker stop dockerbb
+	-docker rm -f dockerbb
+	@echo
+	@echo OK! dockerbb foi desligado
+	@echo
 
 logs:
 	docker logs -f dockerbb
