@@ -54,7 +54,7 @@ make start
 
 Isto deve criar um container chamado `dockerbb` com volume montado em `$HOME/dockerbb-data`. Este diretório em seu computador representa o diretório `$HOME` do usuário dentro do container.
 
-> Algumas distribuições Linux (e mesmo MacOS da Apple) podem manter um UID:GID diferente para o seu usuário na estação de trabalho. O `Makefile` tenta deduzir os valores. Em caso de problemas, confira mais abaixo nesta documentação como customizar este UID:GID.
+> Algumas distribuições Linux (e mesmo MacOS da Apple) podem manter um UID:GID diferente para o seu usuário na estação de trabalho. O `Makefile` tenta deduzir os valores. Em caso de problemas, confira mais abaixo nesta documentação como customizar estes valores.
 
 Após alguns instantes, os componentes internos serão inicializados e uma instância do navegador estará executando dentro do container. Depois de aproximadamente 1 min a mensagem abaixo deve aparecer:
 
