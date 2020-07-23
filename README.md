@@ -56,9 +56,9 @@ Isto deve criar um container chamado `dockerbb` com volume montado em `$HOME/doc
 
 > Algumas distribuições Linux (e mesmo MacOS da Apple) podem manter um UID:GID diferente para o seu usuário na estação de trabalho. O `Makefile` tenta deduzir os valores. Em caso de problemas, confira mais abaixo nesta documentação como alterar estes valores.
 
-Após alguns instantes, os componentes internos serão inicializados e uma instância do navegador estará executando dentro do container. Depois de aproximadamente 1 min a mensagem abaixo deve aparecer:
+Após alguns instantes, os componentes internos serão inicializados e uma instância do navegador estará executando dentro do container. O acesso estará disponível quando aparecer a mensagem abaixo:
 
-```bash
+```text
 Componentes iniciados!
 Em seu navegador, acesse (CTRL+Click do mouse aqui no terminal):
 
