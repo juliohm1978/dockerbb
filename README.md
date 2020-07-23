@@ -69,7 +69,9 @@ Quando terminar, lembre-se de desligar o dockerbb:
     docker stop dockerbb
 ```
 
-O acesso pode ser feito através do seu navegador de preferência **somente em sua estação de trabalho**. Usando este `Makefile`, a porta `6080` não é exposta para interfaces externas, apenas em `localhost/127.0.0.1`. Ao entrar, uma sessão VNC será iniciada para dentro do container. 
+O acesso pode ser feito através do seu navegador de preferência **somente em sua estação de trabalho** (localhost/127.0.0.1).
+
+Através de seu navegador, o endereço http://localhost:6080/vnc_auto.html lhe dará acesso a uma sessão VNC dentro do container. Lá dentro, outra instância do navegador Chromium estará disponível.
 
 > INCEPTION: Utilize o navegador dentro do seu navegador para acessar o site do banco.
 
@@ -81,13 +83,15 @@ make stop
 
 O container será completamente removido, mas o diretório `$HOME/dockerbb-data` será mantido em sua estação de trabalho.
 
-Com cada nova execução, uma nova instalação do pacote Warsaw é realizada. Isto renova chaves e certificados do componente sempre que o `dockerbb` for executado.
+Toda vez que o dockerbb for iniciado, uma nova instalação do pacote Warsaw é realizada. Isto deve renovar as chaves e certificados do componente sempre que o `dockerbb` for executado.
 
 ## Usuário dentro do container
 
-O `Makefile` deste projeto está preparado para deduzir o `UID:GID` de sua estação de trabalho e repassá-los ao container. Assim, o diretório `$HOME/dockerbb-data` e todo seu conteúdo terão as permissões do seu usuário. O usuário de dentro do container não tem acesso à sua estação de trabalho. Por outro lado, é possível transferir arquivos para dentro e fora do container através do diretório `$HOME/dockerbb-data`. Ao avaliar seus próprios requisitos, pode decidir remover este volume para aumentar o isolamento e, por consequẽncia, sua segurança.
+O `Makefile` deste projeto está preparado para deduzir o `UID:GID` de sua estação de trabalho e repassá-los ao container. Caso precise usar outros valores de `UID:GID`, pode defeiní-los passando variáveis de ambiente diretamente ao container: `USER_UID` e `USER_GID`.
 
-Caso precise usar outros valores de `UID:GID`, pode defeiní-los passando variáveis de ambiente diretamente ao container: `USER_UID` e `USER_GID`.
+Com as permissões devidamente ajustadas, o diretório `$HOME/dockerbb-data` e todo seu conteúdo terão as permissões do seu usuário. Fora este diretório, o navegador Chromium não possui acesso direto a outros arquivos da sua estação de trabalho. Para transferir arquivos dentro e fora do container, utilize o diretório `$HOME/dockerbb-data`.
+
+Ao avaliar seus próprios requisitos, pode decidir não usar este volume para aumentar o isolamento. Entretanto, sem ele, o banco deve tratar todo acesso como fosse uma primeira vez.
 
 ## Algumas notas finais
 
