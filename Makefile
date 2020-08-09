@@ -1,5 +1,7 @@
 IMG=juliohm/dockerbb:3.2
 
+.PHONY: docs
+
 USER_UID = $(shell id -u $(USER))
 USER_GID = $(shell id -g $(USER))
 ifeq ($(shell uname),Darwin)
@@ -41,3 +43,6 @@ shell:
 	docker exec -it dockerbb bash
 remove:
 	-docker image rm dockerbb
+
+docs:
+	git add docs; git commit -m 'docs'; git push
