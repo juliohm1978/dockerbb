@@ -14,7 +14,7 @@ A partir da versão 3.0, o Firefox é substituído pelo Chromium Browser. Ao mom
 
 > Agradecimentos ao [@marcocspc](https://github.com/marcocspc) pela ajuda 👍
 
-Começando com a versão `2.x`, componentes necessários para o Xfce4 e VNC são iniciados dentro do container, mantendo tudo ainda mais isolado. Caso precise consultar a documentação da versão com modelo de instalação antigo, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
+Começando com a versão `2.x`, componentes necessários para o Xfce4 e VNC são iniciados dentro do container, mantendo tudo ainda mais isolado. Caso precise consultar a documentação das versões antigas, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
 
 ### Versão atual 3.2 (09/ago/2020):
 
