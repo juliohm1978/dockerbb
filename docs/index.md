@@ -23,7 +23,7 @@ Começando com a versão `2.x`, componentes necessários para o Xfce4 e VNC são
 
 Confira histórico de versões em [CHANGELOG.md](CHANGELOG.md).
 
-## Problemas conhecidos
+## Problemas Conhecidos
 
 Mesmo que o container seja iniciado com `docker run -it` dando ao terminal um console interativo, o comando CTRL+C enviado para dentro do container não consegue matar o processo 1 (`/sbin/init`). Este precisa de outro sinal para terminar com sucesso `SIGRTMIN+3`, agora definido como `STOPSIGNAL` no `Dockerfile`.
 
