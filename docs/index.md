@@ -39,7 +39,7 @@ cd dockerbb
 make
 ```
 
-O build é demorado. Portanto, vá tomar um café. O resultado será uma imagem local chamada `dockerbb`.
+O build é demorado. Portanto, vá tomar um café. O resultado será uma imagem chamada `dockerbb`.
 
 ## Como Usar
 
