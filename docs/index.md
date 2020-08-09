@@ -1,5 +1,3 @@
-Protótipo de imagem Docker com Chromium Browser e Warsaw instalados para acessar o Banco do Brasil.
-
 ## ‼ LEIA ANTES DE CONTINUAR ‼
 
 ***O conteúdo deste repositório é um protótipo de uso pessoal, independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada***.
