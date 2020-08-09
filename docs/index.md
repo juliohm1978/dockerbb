@@ -90,6 +90,6 @@ Com estes valores devidamente ajustados, o diretório `$HOME/dockerbb-data` e to
 
 Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para o Windows. Nada foi testado no [WSL da Microsoft](https://docs.microsoft.com/pt-br/windows/wsl/install-win10).
 
-Para que funcione, vários processos são gerenciados dentro do container pelo `/sbin/init` padrão, comum em várias distribuições Linux. É como se uma mini-estação de trabalho Linux estivesse executando dentro do container. Isto quebra o paradigma "*um processo por container*", padrão na comunidade, mas faz-se necessário pelos requisitos desta solução.
+Para que funcione, vários processos são gerenciados dentro do container pelo `/sbin/init`, comum em várias distribuições Linux. É como se uma mini-estação de trabalho Linux estivesse executando dentro do container. Isto quebra o paradigma "*um processo por container*", padrão na comunidade, mas faz-se necessário pelos requisitos desta solução.
 
 Dentro do container, um usuário comum é configurado na hora da execução. Alguns componentes, como Warsaw e o navegador são executados com este usuário. Outros, por serem necessários ao gerenciamento de processos do Linux, são executados como `root`.
