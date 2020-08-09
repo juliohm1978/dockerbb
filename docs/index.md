@@ -12,7 +12,7 @@
 
 A partir da versão 3.0, o Firefox é substituído pelo Chromium Browser. Ao momento, por ser o navegador majoritário do mercado, oferece maior compatibilidade. Mesmo sendo executado dentro de um container, alguns usuários já encontraram dificuldades usando o dockerbb no MacOS.
 
-> Agradecimentos ao @marcocspc por relatar e ajudar a corrigir os problemas 👍
+> Agradecimentos ao [@marcocspc](https://github.com/marcocspc) por relatar e ajudar a corrigir os problemas 👍
 
 Começando com a versão `2.x`, componentes necessários para o Xfce4 e VNC são iniciados dentro do container, mantendo tudo ainda mais isolado. Caso precise consultar a documentação da versão com modelo de instalação antigo, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
 
