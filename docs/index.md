@@ -92,4 +92,4 @@ Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` f
 
 Para que funcione, vários processos são gerenciados dentro do container pelo `/sbin/init`, comum em várias distribuições Linux. É como se uma mini-estação de trabalho Linux estivesse executando dentro do container. Isto quebra o paradigma "*um processo por container*", mas faz-se necessário nos moldes desta solução.
 
-Dentro do container, um usuário comum é configurado na hora da execução. Alguns componentes, como Warsaw e o navegador são executados com este usuário. Outros, por serem necessários ao gerenciamento de processos do Linux, são executados como `root`.
+Dentro do container, um usuário comum é configurado em tempo de execução. Alguns componentes, como Warsaw e o navegador são executados com este usuário. Outros, por serem necessários ao gerenciamento de processos do Linux, são executados como `root`.
