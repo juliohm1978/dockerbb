@@ -66,9 +66,7 @@ Quando terminar, lembre-se de desligar o dockerbb:
     docker stop dockerbb
 ```
 
-O acesso pode ser feito através do seu navegador preferido, mas **sempre e somente em sua estação de trabalho** (localhost/127.0.0.1).
-
-O endereço <http://localhost:6080/vnc_auto.html> lhe dará acesso a uma sessão VNC dentro do container. Lá dentro, outra instância do navegador Chromium estará disponível.
+O acesso pode ser feito através do seu navegador preferido, mas **sempre e somente em sua estação de trabalho** (localhost/127.0.0.1). O endereço <http://localhost:6080/vnc_auto.html> lhe dará acesso a uma sessão VNC dentro do container. Lá dentro, outra instância do navegador Chromium estará disponível.
 
 > INCEPTION: Utilize o navegador dentro do seu navegador para acessar o site do banco.
 
