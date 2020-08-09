@@ -1,12 +1,24 @@
 Protótipo de imagem Docker com Chromium Browser e Warsaw instalados para acessar o Banco do Brasil.
 
-> **NOTA 1**: A partir da versão 3.0, o Firefox é substituído pelo Chromium Browser. Ao momento, por ser o navegador majoritário do mercado, oferece maior compatibilidade. Mesmo sendo executado dentro de um container, alguns usuários já encontraram dificuldades usando o dockerbb no MacOS, por exemplo.
->
-> *-- Agradecimentos ao @marcocspc por relatar e ajudar a corrigir os problemas. :+1:*
+## LEIA ANTES DE CONTINUAR
 
-> **NOTA 2**: Começando com a versão `2.x`, componentes necessários para o Xfce4 e VNC são iniciados dentro do container, mantendo tudo ainda mais isolado. Caso precise consultar a documentação da versão com modelo de instalação antigo, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
+***O conteúdo deste repositório é um protótipo de uso pessoal, independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada***.
 
-Versão atual 3.1 (22/jul/2020):
+***Sua utilização presume conhecimentos técnicos avançados e se dá por sua própria conta e risco, sem qualquer garantia de suporte ou segurança.***
+
+***Por questões de segurança NUNCA UTILIZE QUALQUER IMAGEM DOCKER PRÉ-CONSTRUÍDA DESTE PROJETO. Obtenha uma cópia do código fonte deste repositório, confira o conteúdo e contrua sua própria imagem.***
+
+***Caso não saiba como proceder com as instruções abaixo, esta solução certamente não é para você.***
+
+## Histórico de Versões
+
+A partir da versão 3.0, o Firefox é substituído pelo Chromium Browser. Ao momento, por ser o navegador majoritário do mercado, oferece maior compatibilidade. Mesmo sendo executado dentro de um container, alguns usuários já encontraram dificuldades usando o dockerbb no MacOS, por exemplo.
+
+*-- Agradecimentos ao @marcocspc por relatar e ajudar a corrigir os problemas. :+1:*
+
+**NOTA 2**: Começando com a versão `2.x`, componentes necessários para o Xfce4 e VNC são iniciados dentro do container, mantendo tudo ainda mais isolado. Caso precise consultar a documentação da versão com modelo de instalação antigo, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
+
+### Versão atual 3.2 (09/ago/2020):
 
 * Chromium Browser: 84.0.4147.105
 * Warsaw 1.14.1-10
@@ -19,16 +31,6 @@ Confira histórico de versões em [CHANGELOG.md](CHANGELOG.md).
 Mesmo que o container seja iniciado com `docker run -it` dando ao terminal um console interativo, o comando CTRL+C enviado para dentro do container não consegue matar o processo 1 (`/sbin/init`). Este precisa de outro sinal para terminar com sucesso `SIGRTMIN+3`, agora definido como `STOPSIGNAL` no `Dockerfile`.
 
 Para conseguir parar o container, é preciso usar `docker stop dockerbb`.
-
-## LEIA ANTES DE CONTINUAR
-
-***O conteúdo deste repositório é um protótipo de uso pessoal, independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada***.
-
-***Sua utilização presume conhecimentos técnicos avançados e se dá por sua própria conta e risco, sem qualquer garantia de suporte ou segurança.***
-
-***Por questões de segurança NUNCA UTILIZE QUALQUER IMAGEM DOCKER PRÉ-CONSTRUÍDA DESTE PROJETO. Obtenha uma cópia do código fonte deste repositório, confira o conteúdo e contrua sua própria imagem.***
-
-***Caso não saiba como proceder com as instruções abaixo, esta solução certamente não é para você.***
 
 ## Construção Local da Imagem
 
