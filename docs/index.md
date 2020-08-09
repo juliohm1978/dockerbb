@@ -22,7 +22,6 @@ A partir da versão 3.0, o Firefox é substituído pelo Chromium Browser. Ao mom
 
 * Chromium Browser: 84.0.4147.105
 * Warsaw 1.14.1-10
-* Melhorias na inicializaçao do serviços
 
 Confira histórico de versões em [CHANGELOG.md](CHANGELOG.md).
 
