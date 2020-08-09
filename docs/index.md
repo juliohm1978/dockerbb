@@ -84,7 +84,7 @@ Toda vez que o dockerbb for iniciado, uma nova instalação do pacote Warsaw é 
 
 O `Makefile` deste projeto está preparado para deduzir o `UID:GID` de sua estação de trabalho e repassá-los ao container. Caso precise usar outros valores de `UID:GID`, pode defeiní-los passando variáveis de ambiente diretamente ao container: `USER_UID` e `USER_GID`.
 
-Com as permissões devidamente ajustadas, o diretório `$HOME/dockerbb-data` e todo seu conteúdo terão as permissões do seu usuário. Fora este diretório, o navegador Chromium não possui acesso direto a outros arquivos da sua estação de trabalho. Para transferir arquivos dentro e fora do container, utilize o diretório `$HOME/dockerbb-data`.
+Com estes valores devidamente ajustados, o diretório `$HOME/dockerbb-data` e todo seu conteúdo terão as permissões do seu usuário. Fora este diretório, o navegador Chromium não possui acesso direto a outros arquivos da sua estação de trabalho. Para transferir arquivos dentro e fora do container, utilize o diretório `$HOME/dockerbb-data`.
 
 Ao avaliar seus próprios requisitos, pode decidir não usar este volume para aumentar o isolamento. Entretanto, sem ele, o banco deve tratar todo acesso como fosse uma primeira vez.
 
