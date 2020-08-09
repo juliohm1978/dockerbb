@@ -6,7 +6,7 @@ Protótipo de imagem Docker com Chromium Browser e Warsaw instalados para acessa
 
 ***Sua utilização presume conhecimentos técnicos avançados e se dá por sua própria conta e risco, sem qualquer garantia de suporte ou segurança.***
 
-***Por questões de segurança NUNCA UTILIZE QUALQUER IMAGEM DOCKER PRÉ-CONSTRUÍDA DESTE PROJETO. Obtenha uma cópia do código fonte deste repositório, confira o conteúdo e contrua sua própria imagem.***
+***Por questões de segurança NUNCA UTILIZE QUALQUER IMAGEM DOCKER PRÉ-CONSTRUÍDA DESTE PROJETO. Obtenha uma cópia do código fonte, confira o conteúdo e contrua sua própria imagem.***
 
 ***Caso não saiba como proceder com as instruções abaixo, esta solução certamente não é para você.***
 
