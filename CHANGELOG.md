@@ -1,5 +1,9 @@
 # Histórico de Versões
 
+## 3.2 (09/ago/2020)
+
+* Atualiza Chromium para 84.0.4147.105
+
 ## 3.1 (22/jul/2020)
 
 * Atualiza Chromium para 83.0.4103.61

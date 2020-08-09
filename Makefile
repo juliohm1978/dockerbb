@@ -1,4 +1,4 @@
-IMG=juliohm/dockerbb:3.1
+IMG=juliohm/dockerbb:3.2
 
 USER_UID = $(shell id -u $(USER))
 USER_GID = $(shell id -g $(USER))
