@@ -86,8 +86,6 @@ O `Makefile` deste projeto está preparado para deduzir o `UID:GID` de sua esta�
 
 Com estes valores devidamente ajustados, o diretório `$HOME/dockerbb-data` e todo seu conteúdo terão as permissões do seu usuário. Fora este diretório, o navegador Chromium não possui acesso à sua estação de trabalho. Para transferir arquivos dentro e fora do container, utilize o diretório `$HOME/dockerbb-data`.
 
-Ao avaliar seus próprios requisitos, pode decidir não usar este volume para aumentar o isolamento. Entretanto, sem ele, o banco deve tratar todo acesso como fosse uma primeira vez.
-
 ## Algumas notas finais
 
 Sendo uma imgem Docker com base `FROM ubuntu:18.04`, segue-se que o `dockerbb` foi criado especialmente para ambientes Linux. Nenhum suporte foi idealizado para o Windows. Nada foi testado no ambiente WSL da Microsoft.
