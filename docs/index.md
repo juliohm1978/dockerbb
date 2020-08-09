@@ -8,8 +8,6 @@
 
 ***Caso não saiba como proceder com as instruções abaixo, esta solução certamente não é para você.***
 
-----
-
 ## Histórico de Versões
 
 A partir da versão 3.0, o Firefox é substituído pelo Chromium Browser. Ao momento, por ser o navegador majoritário do mercado, oferece maior compatibilidade. Mesmo sendo executado dentro de um container, alguns usuários já encontraram dificuldades usando o dockerbb no MacOS, por exemplo.
