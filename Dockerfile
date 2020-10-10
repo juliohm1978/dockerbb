@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    CHROME_VERSION=84 \
+    CHROME_VERSION=85 \
     XFCE_VERSION=4.12.4 \
     XFWM4_VERSION=4.12.5 \
     X11VNC_VERSION=0.9.13-3 \
@@ -45,10 +45,7 @@ COPY rootfs /
 
 STOPSIGNAL SIGRTMIN+3
 
-RUN    systemctl enable warsaw-install \
-    && systemctl enable warsaw-root \
-    && systemctl enable warsaw-user \
-    && systemctl enable xvfb \
+RUN    systemctl enable xvfb \
     && systemctl enable xfwm \
     && systemctl enable vnc \
     && systemctl enable novnc \

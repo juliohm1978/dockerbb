@@ -1,7 +1,0 @@
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/dpkg -i /w.deb
-RemainAfterExit=yes
-
-[Install]
-WantedBy=multi-user.target

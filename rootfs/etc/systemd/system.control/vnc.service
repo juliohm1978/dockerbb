@@ -4,7 +4,7 @@ After=xfwm.service
 
 [Service]
 #ExecStart=/usr/bin/x11vnc -passwd $VNC_PASSWORD --rfbport 5900 -display $DISPLAY -N -forever
-ExecStart=/usr/bin/x11vnc --rfbport 5900 -display :20 -N -forever
+ExecStart=/usr/bin/x11vnc --rfbport 5900 -display :20 -N -forever -ncache
 Restart=on-failure
 User=user
 Group=user

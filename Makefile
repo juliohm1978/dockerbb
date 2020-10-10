@@ -1,4 +1,4 @@
-IMG=juliohm/dockerbb:3.2
+IMG=juliohm/dockerbb:3.3
 
 .PHONY: docs
 
