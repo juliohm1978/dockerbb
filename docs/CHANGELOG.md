@@ -4,6 +4,7 @@
 
 * Atualiza Chromium Browser para 85.0.4183.121
 * Atualiza Warsaw para 1.15.1-1
+* Altera inicialização dos componentes para funcionar com warsaw 1.15.x
 
 ## 3.2 (09/ago/2020)
 
