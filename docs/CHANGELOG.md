@@ -1,5 +1,10 @@
 # Histórico de Versões
 
+## 3.3 (10/out/2020)
+
+* Atualiza Chromium Browser para 85.0.4183.121
+* Atualiza Warsaw para 1.15.1-1
+
 ## 3.2 (09/ago/2020)
 
 * Atualiza Chromium para 84.0.4147.105
