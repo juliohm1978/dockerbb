@@ -1,5 +1,9 @@
 # Histórico de Versões
 
+## 3.4 (23/out/2020)
+
+* Atualiza Chromium Browser para 86.0.4240.75
+
 ## 3.3 (10/out/2020)
 
 * Atualiza Chromium Browser para 85.0.4183.121
