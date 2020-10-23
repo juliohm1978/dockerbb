@@ -18,7 +18,7 @@ Começando com a versão `2.x`, componentes necessários para o Xfce4 e VNC são
 
 ### Versão atual 3.3 (10/out/2020):
 
-* Chromium Browser: 85.0.4183.121
+* Chromium Browser: 86.0.4240.75
 * Warsaw 1.15.1-1
 
 Confira histórico de versões em [CHANGELOG.md](CHANGELOG.md).
