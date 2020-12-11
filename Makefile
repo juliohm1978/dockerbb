@@ -1,4 +1,4 @@
-IMG=juliohm/dockerbb:3.3
+IMG=juliohm/dockerbb:3.4
 
 DOCKERCMD="docker"
 
