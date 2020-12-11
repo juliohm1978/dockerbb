@@ -1,6 +1,6 @@
 IMG=juliohm/dockerbb:3.4
 
-DOCKERCMD="docker"
+DOCKERCMD=docker
 
 .PHONY: docs
 
