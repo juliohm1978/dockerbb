@@ -1,5 +1,7 @@
 IMG=juliohm/dockerbb:3.3
 
+DOCKERCMD="docker"
+
 .PHONY: docs
 
 USER_UID = $(shell id -u $(USER))
@@ -9,40 +11,40 @@ ifeq ($(shell uname),Darwin)
 endif
 
 build:
-	docker build -t dockerbb .
+	$(DOCKERCMD) build -t dockerbb .
 
 push: build
-	docker tag dockerbb $(IMG)
-	docker push $(IMG)
+	$(DOCKERCMD) tag dockerbb $(IMG)
+	$(DOCKERCMD) push $(IMG)
 
 start: IMG=dockerbb
 start:
-	-docker stop dockerbb
-	-docker rm -f dockerbb
-	rm -rf ~/dockerbb-data/.config/chromium/Singleton*
-	docker run -d --rm -it --privileged --name dockerbb \
+	-$(DOCKERCMD) stop dockerbb
+	-$(DOCKERCMD) rm -f dockerbb
+	#rm -rf ~/dockerbb-data/.config/chromium/Singleton*
+	$(DOCKERCMD) run -d --rm -it --privileged --name dockerbb \
 		-e USER_UID=$(USER_UID) \
 		-e USER_GID=$(USER_GID) \
 		-p 127.0.0.1:6080:6080 \
 		-v "$(HOME)/dockerbb-data:/home/user" \
 		$(IMG) www.bb.com.br
-	docker logs -f dockerbb
+	$(DOCKERCMD) logs -f dockerbb
 
 stop:
-	rm -rf ~/dockerbb-data/.config/chromium/Singleton*
-	-docker stop dockerbb
-	-docker rm -f dockerbb
+	#rm -rf ~/dockerbb-data/.config/chromium/Singleton*
+	-$(DOCKERCMD) stop dockerbb
+	-$(DOCKERCMD) rm -f dockerbb
 	@echo
 	@echo OK! dockerbb foi desligado
 	@echo
 
 logs:
-	docker logs -f dockerbb
+	$(DOCKERCMD) logs -f dockerbb
 
 shell:
-	docker exec -it dockerbb bash
+	$(DOCKERCMD) exec -it dockerbb bash
 remove:
-	-docker image rm dockerbb
+	-$(DOCKERCMD) image rm dockerbb
 
 docs:
 	git add docs; git commit -m 'docs'; git push
