@@ -1,6 +1,6 @@
 ## ‼ LEIA ANTES DE CONTINUAR ‼
 
-***O conteúdo deste repositório é um protótipo de uso pessoal, independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada***.
+***O conteúdo deste repositório é um protótipo de uso pessoal independente e não possui vínculo com o Banco do Brasil ou qualquer instituição relacionada***.
 
 ***Sua utilização presume conhecimentos técnicos avançados e se dá por sua própria conta e risco, sem qualquer garantia de suporte ou segurança.***
 
