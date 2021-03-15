@@ -1,5 +1,10 @@
 # Histórico de Versões
 
+## 3.5 (15/mar/2021)
+
+* Atualiza Chromium Browser para 89.0.4389.90
+* Notas sobre o docker rootless
+
 ## 3.4 (23/out/2020)
 
 * Atualiza Chromium Browser para 86.0.4240.75

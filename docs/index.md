@@ -16,18 +16,26 @@ A partir da versão 3.0, o Firefox é substituído pelo Chromium Browser. Ao mom
 
 Começando com a versão `2.x`, componentes necessários para o Xfce4 e VNC são iniciados dentro do container, mantendo tudo ainda mais isolado. Caso precise consultar a documentação das versões antigas, confira o histórico [na tag `1.x`](https://github.com/juliohm1978/dockerbb/tree/v1.0).
 
-### Versão atual 3.4 (23/out/2020):
+### Versão atual 3.5 (15/mar/2021):
 
-* Chromium Browser: 86.0.4240.75
+* Chromium Browser: 89.0.4389.90
 * Warsaw 1.15.1-1
 
 Confira histórico de versões em [CHANGELOG.md](CHANGELOG.md).
 
 ## Problemas Conhecidos
 
+### Stop Signal
+
 Mesmo que o container seja iniciado com `docker run -it` dando ao terminal um console interativo, o comando CTRL+C enviado para dentro do container não consegue matar o processo 1 (`/sbin/init`). Este precisa de outro sinal para terminar com sucesso `SIGRTMIN+3`, agora definido como `STOPSIGNAL` no `Dockerfile`.
 
 Para conseguir parar o container, é preciso usar `docker stop dockerbb`.
+
+### Docker Rootless
+
+Com maior segurança em mente, a utilização do Docker em modo _rootless_ tem se tornado popular, especialmente no ambiente Desktop. Isto evita que usuários comuns tenham acesso ao Docker Daemon do usuário _root_.
+
+Infelizmente, esta imagem não funciona bem no modo rootless ou `ubuntu:20.04` devido à foram como o `/sbin/init` se comporta.
 
 ## Construção Local da Imagem
 
