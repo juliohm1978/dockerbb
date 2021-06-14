@@ -6,4 +6,6 @@
 
 Confira instruções para construção e utilização na documentação completa.
 
-👉 https://dockerbb.juliohm.com.br
+👉 https://dockerbb.morimoto.net.br
+
+OBS: Até 13/jun/2021, a documentação era hospedada no domínio dockerbb.juliohm.com.br. A partir de então, o endereço foi alterado para https://dockerbb.morimoto.net.br.
