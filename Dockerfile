@@ -7,7 +7,7 @@ RUN apt-get update && \
 FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    CHROME_VERSION=89 \
+    CHROME_VERSION=91 \
     XFCE_VERSION=4.12.4 \
     XFWM4_VERSION=4.12.5 \
     X11VNC_VERSION=0.9.13-3 \
