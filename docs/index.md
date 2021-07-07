@@ -22,7 +22,7 @@ Até 13/jun/2021, esta documentação era hospedada no domínio **dockerbb.julio
 
 ### Versão atual 3.5 (15/mar/2021):
 
-* Chromium Browser: 89.0.4389.90
+* Chromium Browser: 91.0.4472.114
 * Warsaw 1.15.1-1
 
 Confira histórico de versões em [CHANGELOG.md](CHANGELOG.md).
