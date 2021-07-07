@@ -1,4 +1,4 @@
-IMG=juliohm/dockerbb:3.5
+IMG=juliohm/dockerbb:3.6
 
 DOCKERCMD=sudo docker
 
