@@ -39,7 +39,7 @@ Para conseguir parar o container, é preciso usar `docker stop dockerbb`.
 
 Com maior segurança em mente, a utilização do Docker em modo _rootless_ tem se tornado popular, especialmente no ambiente Desktop. Isto evita que usuários comuns tenham acesso ao Docker Daemon do usuário _root_.
 
-Infelizmente, esta imagem não funciona bem no modo rootless ou `ubuntu:20.04` devido à foram como o `/sbin/init` se comporta.
+Infelizmente, esta imagem não funciona bem no modo rootless ou `ubuntu:20.04` devido à forma como o `/sbin/init` se comporta.
 
 ## Construção Local da Imagem
 
