@@ -1,5 +1,9 @@
 # Histórico de Versões
 
+## 3.7 (28/jul/2021)
+
+* Atualiza Chromium Browser para 92
+
 ## 3.6 (07/jul/2021)
 
 * Atualiza Chromium Browser para 91.0.4472.114
