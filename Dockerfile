@@ -7,13 +7,14 @@ RUN apt-get update && \
 FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    CHROME_VERSION=92 \
+    CHROME_VERSION=95 \
     XFCE_VERSION=4.12.4 \
     XFWM4_VERSION=4.12.5 \
     X11VNC_VERSION=0.9.13-3 \
     XVFB_VERSION=2:1.19.6 \
     NOVNC_VERSION=1:0.4 \
-    OPENSSL_VERSION=1.1.1-1
+    OPENSSL_VERSION=1 \
+    container=docker
 
 COPY --from=apt /etc/apt/ /etc/apt/
 

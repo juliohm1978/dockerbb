@@ -1,5 +1,11 @@
 # Histórico de Versões
 
+## 3.8 (03/nov/2021)
+
+* Atualiza Chromium Browser para 95
+* Cria variável de ambiente `container=docker` para systemd se comportar com o host.
+* Generaliza versão do openssl para 1.x mais recente.
+
 ## 3.7 (28/jul/2021)
 
 * Atualiza Chromium Browser para 92
