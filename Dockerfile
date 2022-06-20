@@ -1,13 +1,7 @@
-FROM ubuntu:18.04 as apt
-
-RUN apt-get update && \
-    apt-get install -y software-properties-common && \
-    add-apt-repository -y ppa:canonical-chromium-builds/stage
-
 FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    CHROME_VERSION=95 \
+    CHROME_VERSION=101 \
     XFCE_VERSION=4.12.4 \
     XFWM4_VERSION=4.12.5 \
     X11VNC_VERSION=0.9.13-3 \
@@ -15,8 +9,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     NOVNC_VERSION=1:0.4 \
     OPENSSL_VERSION=1 \
     container=docker
-
-COPY --from=apt /etc/apt/ /etc/apt/
 
 RUN apt-get update && apt-get install -y \
     libnss3-tools \
