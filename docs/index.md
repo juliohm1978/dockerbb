@@ -20,10 +20,10 @@ Começando com a versão `2.x`, componentes necessários para o Xfce4 e VNC são
 
 Até 13/jun/2021, esta documentação era hospedada no domínio **dockerbb.juliohm.com.br**. A partir de então, o endereço foi alterado para **https://dockerbb.morimoto.net.br**.
 
-### Versão atual 3.8 (03/nov/2021):
+### Versão atual 3.9 (29/mai/2023):
 
-* Chromium Browser: 95
-* Warsaw 1.15
+* Chromium Browser: 112
+* Warsaw 2.21.3-1
 
 Confira histórico de versões em [CHANGELOG.md](CHANGELOG.md).
 
