@@ -13,6 +13,9 @@ services:
     privileged: true
     stdin_open: true
     tty: true
+    volumes:
+      - "/home/kenyos/Docker/docker-compose/dockerbb-data/config:/home/user/.config:rw"
+      - "/home/kenyos/Docker/docker-compose/dockerbb-data/cache:/home/user/.cache:rw"
     restart: always
     networks:
       - default_network
