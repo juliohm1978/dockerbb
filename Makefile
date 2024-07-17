@@ -28,7 +28,7 @@ start:
 		-p 127.0.0.1:6080:6080 \
 		-v "$(HOME)/dockerbb-data:/home/user" \
 		$(IMG) www.bb.com.br
-	$(DOCKERCMD) logs -f dockerbb || true
+	$(DOCKERCMD) logs -f dockerbb
 
 stop:
 	#rm -rf ~/dockerbb-data/.config/chromium/Singleton*
