@@ -7,7 +7,6 @@ services:
     environment:
       - USER_UID=500
       - USER_GID=500
-      - CHROMIUM_URL=https://www.bb.com.br
     ports:
       - "127.0.0.1:6080:6080"
     privileged: true
