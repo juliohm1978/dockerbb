@@ -25,7 +25,7 @@ start:
 	$(DOCKERCMD) run -d --rm -it --privileged --name dockerbb \
 		-e USER_UID=$(USER_UID) \
 		-e USER_GID=$(USER_GID) \
-		-p 6080:6080 \
+		-p 127.0.0.1:6080:6080 \
 		-v "$(HOME)/dockerbb-data:/home/user" \
 		$(IMG) www.bb.com.br
 	$(DOCKERCMD) logs -f dockerbb
