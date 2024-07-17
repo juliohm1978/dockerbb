@@ -9,7 +9,7 @@ services:
       - USER_GID=1000
     ports:
       - "127.0.0.1:6080:6080"
-    command: www.bb.com.br
+    command: ["chromium", "www.bb.com.br"]
     privileged: true
     stdin_open: true
     tty: true
