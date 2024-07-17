@@ -13,4 +13,4 @@ else
 fi
 chown -R user.user /home/user
 
-exec /sbin/init
+exec "$@"
