@@ -5,8 +5,8 @@ services:
     image: dockerbb
     container_name: dockerbb
     environment:
-      - USER_UID=1000
-      - USER_GID=1000
+      - USER_UID=500
+      - USER_GID=500
     ports:
       - "127.0.0.1:6080:6080"
     command: ["chromium", "www.bb.com.br"]
