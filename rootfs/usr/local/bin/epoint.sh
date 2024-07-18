@@ -1,6 +1,6 @@
 #!/bin/bash -xe
 
-    rm /home/user/.config/chromium/SingletonLock
+rm /home/user/.config/chromium/SingletonLock
 
 if ! getent group $USER_GID >/dev/null; then
     groupadd -g $USER_GID user
