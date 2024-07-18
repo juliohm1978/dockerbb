@@ -1,9 +1,5 @@
 #!/bin/bash -xe
 
-if [ -f /home/user/.config/chromium/SingletonLock ]; then
-    rm /home/user/.config/chromium/SingletonLock
-fi
-
 /usr/bin/dpkg -D10 -i /w.deb
 service warsaw restart
 
