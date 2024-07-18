@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if [ -f /home/user/.config/chromium/SingletonLock ]; then
-    rm /home/user/.config/chromium/SingletonLock
-fi
-
 echo "
 ===
 
