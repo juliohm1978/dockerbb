@@ -13,9 +13,5 @@ else
 fi
 chown -R user.user /home/user
 
-if [ -f /home/user/.config/chromium/SingletonLock ]; then
-    rm /home/user/.config/chromium/SingletonLock
-fi
-
 exec /sbin/init
 
